@@ -17,7 +17,14 @@ import {
   Mail,
   Phone,
   MapPin,
-  MessageCircle
+  MessageCircle,
+  ExternalLink,
+  Download,
+  Play,
+  Zap,
+  Globe,
+  Shield,
+  Rocket
 } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
 
