@@ -785,129 +785,196 @@ const Homepage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to grow your business online? Let's talk about your project and create something amazing together.
+      <section id="contact" className="relative z-10 container mx-auto px-4 sm:px-6 py-20">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Let's Work Together</h2>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your business with cutting-edge digital solutions? Let's discuss your project and create something extraordinary.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-cyan-400">Start Your Project</h3>
+          <div className="bg-gray-900/30 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition-all duration-500">
+            <h3 className="text-2xl font-bold mb-8 text-white flex items-center">
+              <Rocket className="w-6 h-6 text-purple-400 mr-3" />
+              Start Your Project
+            </h3>
             <form 
               action="https://formsubmit.co/seranexdigital@gmail.com" 
               method="POST"
               className="space-y-6"
             >
-              <div>
-                <label className="block text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none"
-                  placeholder="Your Full Name"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-300 mb-3 font-medium">Full Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-6 py-4 bg-black/40 border border-gray-700/50 rounded-2xl text-white placeholder-gray-500 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 backdrop-blur-sm"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-3 font-medium">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-6 py-4 bg-black/40 border border-gray-700/50 rounded-2xl text-white placeholder-gray-500 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 backdrop-blur-sm"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
               </div>
               <div>
-                <label className="block text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-300 mb-2">Project Type</label>
+                <label className="block text-gray-300 mb-3 font-medium">Project Type</label>
                 <select
                   name="project_type"
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none"
+                  value={formData.project_type}
+                  onChange={handleInputChange}
+                  className="w-full px-6 py-4 bg-black/40 border border-gray-700/50 rounded-2xl text-white focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 backdrop-blur-sm"
                 >
                   <option value="website">Website Development</option>
                   <option value="app">Mobile App</option>
                   <option value="design">Graphic Design</option>
                   <option value="marketing">Digital Marketing</option>
                   <option value="ecommerce">Online Store</option>
+                  <option value="cloud">Cloud Solutions</option>
                   <option value="other">Other</option>
                 </select>
               </div>
               <div>
-                <label className="block text-gray-300 mb-2">Message</label>
+                <label className="block text-gray-300 mb-3 font-medium">Project Details</label>
                 <textarea
                   name="message"
-                  rows="4"
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none"
-                  placeholder="Tell us about your project..."
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full px-6 py-4 bg-black/40 border border-gray-700/50 rounded-2xl text-white placeholder-gray-500 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 backdrop-blur-sm resize-none"
+                  placeholder="Tell us about your project vision, goals, and requirements..."
                 ></textarea>
               </div>
               <Button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white border-0 py-3"
+                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0 py-4 text-lg font-semibold shadow-2xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105"
               >
-                Send Message <ArrowRight className="ml-2 w-5 h-5" />
+                <Zap className="mr-2 w-5 h-5" />
+                Send Message & Get Quote
               </Button>
             </form>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-8">
-            <div>
-              <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                <Mail className="w-6 h-6 text-cyan-400 mr-3" />
-                Email Us
-              </h4>
-              <p className="text-gray-300 mb-2">seranexdigital@gmail.com</p>
-              <p className="text-gray-400 text-sm">Send us a message anytime</p>
+            {/* Email */}
+            <div 
+              onClick={openEmail}
+              className="bg-gray-900/30 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 cursor-pointer group hover:scale-105"
+            >
+              <div className="flex items-start">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-purple-500/25">
+                  <Mail className="w-8 h-8 text-white" />
+                </div>
+                <div className="ml-6">
+                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Email Us</h4>
+                  <p className="text-purple-400 font-semibold text-lg mb-2">seranexdigital@gmail.com</p>
+                  <p className="text-gray-400">Get a response within 24 hours</p>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                <MessageCircle className="w-6 h-6 text-green-400 mr-3" />
-                WhatsApp Us
-              </h4>
-              <p className="text-gray-300 mb-2">0728382638</p>
-              <p className="text-gray-400 text-sm">Chat with us directly on WhatsApp</p>
+            {/* WhatsApp */}
+            <div 
+              onClick={openWhatsApp}
+              className="bg-gray-900/30 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 hover:border-green-500/50 transition-all duration-500 cursor-pointer group hover:scale-105"
+            >
+              <div className="flex items-start">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-green-500/25">
+                  <MessageCircle className="w-8 h-8 text-white" />
+                </div>
+                <div className="ml-6">
+                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors">WhatsApp</h4>
+                  <p className="text-green-400 font-semibold text-lg mb-2">0728382638</p>
+                  <p className="text-gray-400">Chat instantly for quick support</p>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                <MapPin className="w-6 h-6 text-purple-400 mr-3" />
-                Visit Us
-              </h4>
-              <p className="text-gray-300 mb-2">Sri Lanka</p>
-              <p className="text-gray-400 text-sm">Come see us in person</p>
+            {/* Location */}
+            <div className="bg-gray-900/30 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 hover:border-cyan-500/50 transition-all duration-500 group">
+              <div className="flex items-start">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-cyan-500/25">
+                  <MapPin className="w-8 h-8 text-white" />
+                </div>
+                <div className="ml-6">
+                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Our Location</h4>
+                  <p className="text-cyan-400 font-semibold text-lg mb-2">Sri Lanka</p>
+                  <p className="text-gray-400">Serving clients worldwide</p>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-xl font-bold text-white mb-4">What We Do</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>• Website Building</li>
-                <li>• Mobile Apps</li>
-                <li>• Graphic Design</li>
-                <li>• Digital Marketing</li>
-                <li>• Online Stores</li>
-                <li>• Cloud Storage</li>
-              </ul>
+            {/* Services List */}
+            <div className="bg-gray-900/30 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50">
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center">
+                <Globe className="w-6 h-6 text-purple-400 mr-3" />
+                Our Services
+              </h4>
+              <div className="grid grid-cols-2 gap-4 text-gray-300">
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Website Building</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Mobile Apps</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Graphic Design</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Digital Marketing</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Online Stores</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 text-purple-400 mr-2 flex-shrink-0" />
+                  <span>Cloud Solutions</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16 p-8 bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-2xl border border-slate-600">
-          <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Join over 200+ happy clients who have grown their businesses with SERANEX. Let's make something great together.
+        <div className="text-center mt-20 p-12 bg-gradient-to-r from-gray-900/40 to-gray-800/40 rounded-3xl border border-gray-700/50 backdrop-blur-xl">
+          <h3 className="text-3xl font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Ready to Get Started?</h3>
+          <p className="text-gray-300 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
+            Join over 200+ happy clients who have transformed their businesses with SERANEX. Let's create something extraordinary together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white border-0 px-8 py-3">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105"
+            >
+              <Download className="mr-2 w-5 h-5" />
               Get Free Quote
             </Button>
-            <Button variant="outline" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 px-8 py-3">
+            <Button 
+              onClick={() => scrollToSection('portfolio')}
+              variant="outline" 
+              className="border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 px-8 py-4 text-lg font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105"
+            >
+              <Shield className="mr-2 w-5 h-5" />
               See Our Work
             </Button>
           </div>
