@@ -196,142 +196,196 @@ const Homepage = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            We offer everything you need to grow your business online and reach more customers.
+      <section id="services" className="relative z-10 container mx-auto px-4 sm:px-6 py-20">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Our Services</h2>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            We offer everything you need to grow your business online and reach more customers with cutting-edge solutions.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {/* Website Building */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('website')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                <Code2 className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-purple-500/25">
+                <Code2 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Website Building</h3>
-              <p className="text-gray-300 mb-4">
-                We build fast, beautiful websites that work perfectly on phones, tablets, and computers.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors">Website Building</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                We build lightning-fast, beautiful websites that work perfectly across all devices and browsers.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-2" />Mobile-Friendly</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-2" />Fast Loading</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-2" />Easy to Update</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-cyan-400 mr-2" />Works Everywhere</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-purple-400 mr-3 flex-shrink-0" />Mobile-Responsive Design</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-purple-400 mr-3 flex-shrink-0" />Lightning Fast Loading</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-purple-400 mr-3 flex-shrink-0" />Easy Content Management</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-purple-400 mr-3 flex-shrink-0" />SEO Optimized</li>
               </ul>
-              <Button variant="outline" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-purple-500/50 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Graphic Design */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-purple-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-pink-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('design')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
-                <Palette className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-pink-500/25">
+                <Palette className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Graphic Design</h3>
-              <p className="text-gray-300 mb-4">
-                Beautiful logos, brand designs, and graphics that make your business look professional.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-pink-300 transition-colors">Graphic Design</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Creative visual solutions and brand designs that make your business stand out professionally.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-2" />Logo Design</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-2" />Business Cards</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-2" />Brochures</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-purple-400 mr-2" />Social Media Graphics</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-pink-400 mr-3 flex-shrink-0" />Logo & Brand Identity</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-pink-400 mr-3 flex-shrink-0" />Business Materials</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-pink-400 mr-3 flex-shrink-0" />Marketing Graphics</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-pink-400 mr-3 flex-shrink-0" />Social Media Assets</li>
               </ul>
-              <Button variant="outline" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-pink-500/50 text-pink-400 hover:bg-pink-500/10 hover:border-pink-400 hover:text-pink-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Digital Marketing */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-green-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('marketing')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-cyan-500/25">
+                <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Digital Marketing</h3>
-              <p className="text-gray-300 mb-4">
-                Help more people find your business online and turn visitors into customers.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-cyan-300 transition-colors">Digital Marketing</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Strategic marketing campaigns that drive traffic, generate leads, and convert visitors to customers.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2" />Google Ads</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2" />Social Media</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2" />Email Marketing</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-green-400 mr-2" />SEO Optimization</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" />Google Ads & PPC</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" />Social Media Marketing</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" />Email Campaigns</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0" />SEO & Analytics</li>
               </ul>
-              <Button variant="outline" className="border-green-400 text-green-400 hover:bg-green-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Mobile Apps */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-orange-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('mobile')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-4">
-                <Smartphone className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-orange-500/25">
+                <Smartphone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Mobile Apps</h3>
-              <p className="text-gray-300 mb-4">
-                Custom mobile apps for iPhone and Android that your customers will love to use.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-orange-300 transition-colors">Mobile Apps</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Custom mobile applications for iOS and Android with intuitive user experiences and modern features.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-orange-400 mr-2" />iPhone Apps</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-orange-400 mr-2" />Android Apps</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-orange-400 mr-2" />Easy to Use</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-orange-400 mr-2" />App Store Ready</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-orange-400 mr-3 flex-shrink-0" />iOS & Android Apps</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-orange-400 mr-3 flex-shrink-0" />Cross-Platform Solutions</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-orange-400 mr-3 flex-shrink-0" />App Store Deployment</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-orange-400 mr-3 flex-shrink-0" />Maintenance & Updates</li>
               </ul>
-              <Button variant="outline" className="border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 hover:text-orange-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Online Stores */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-pink-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-green-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('ecommerce')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg flex items-center justify-center mb-4">
-                <ShoppingCart className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-green-500/25">
+                <ShoppingCart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Online Stores</h3>
-              <p className="text-gray-300 mb-4">
-                Complete online shops where you can sell products and accept payments easily.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-green-300 transition-colors">Online Stores</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Complete e-commerce solutions with secure payments, inventory management, and customer analytics.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-pink-400 mr-2" />Payment Processing</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-pink-400 mr-2" />Inventory Management</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-pink-400 mr-2" />Order Tracking</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-pink-400 mr-2" />Customer Support</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />Secure Payment Gateway</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />Inventory Management</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />Order Tracking System</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />Customer Support Tools</li>
               </ul>
-              <Button variant="outline" className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-400 hover:text-green-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Cloud Solutions */}
-          <Card className="bg-slate-800/50 border-slate-700 hover:border-indigo-400/50 transition-all duration-300 hover:scale-105">
+          <Card 
+            className="bg-gray-900/30 backdrop-blur-xl border border-gray-800/50 hover:border-indigo-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer"
+            onMouseEnter={() => setActiveService('cloud')}
+            onMouseLeave={() => setActiveService(null)}
+          >
             <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                <Cloud className="w-6 h-6 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg shadow-indigo-500/25">
+                <Cloud className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Cloud Solutions</h3>
-              <p className="text-gray-300 mb-4">
-                Secure online storage and backup systems to keep your business data safe.
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors">Cloud Solutions</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Scalable cloud infrastructure and backup systems to keep your business data secure and accessible.
               </p>
-              <ul className="space-y-2 text-sm text-gray-400 mb-6">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-indigo-400 mr-2" />Data Backup</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-indigo-400 mr-2" />File Storage</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-indigo-400 mr-2" />Team Collaboration</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-indigo-400 mr-2" />24/7 Security</li>
+              <ul className="space-y-3 text-sm text-gray-400 mb-8">
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-indigo-400 mr-3 flex-shrink-0" />Automated Backups</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-indigo-400 mr-3 flex-shrink-0" />Cloud Storage Solutions</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-indigo-400 mr-3 flex-shrink-0" />Team Collaboration</li>
+                <li className="flex items-center"><CheckCircle className="w-5 h-5 text-indigo-400 mr-3 flex-shrink-0" />24/7 Security Monitoring</li>
               </ul>
-              <Button variant="outline" className="border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-slate-900">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                variant="outline" 
+                className="border-indigo-500/50 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400 hover:text-indigo-300 w-full transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
                 Learn More
               </Button>
             </CardContent>
