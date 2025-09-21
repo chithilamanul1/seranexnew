@@ -16,16 +16,17 @@ const ParticleBackground = () => {
 
     const createParticles = () => {
       particles = [];
-      const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
+      const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 12000));
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.5 + 0.2,
+          size: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.8,
+          speedY: (Math.random() - 0.5) * 0.8,
+          opacity: Math.random() * 0.6 + 0.2,
+          color: Math.random() > 0.5 ? 'rgba(147, 51, 234,' : 'rgba(6, 182, 212,', // purple or cyan
         });
       }
     };
@@ -44,24 +45,35 @@ const ParticleBackground = () => {
         if (particle.y > canvas.height) particle.y = 0;
         if (particle.y < 0) particle.y = canvas.height;
         
-        // Draw particle
+        // Draw particle with glow effect
+        const glowSize = particle.size * 3;
+        
+        // Outer glow
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 248, ${particle.opacity})`;
+        ctx.arc(particle.x, particle.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = `${particle.color} ${particle.opacity * 0.1})`;
         ctx.fill();
         
-        // Draw connections
+        // Inner particle
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `${particle.color} ${particle.opacity})`;
+        ctx.fill();
+        
+        // Draw connections with enhanced glow
         particles.slice(index + 1).forEach(otherParticle => {
           const distance = Math.sqrt(
             Math.pow(particle.x - otherParticle.x, 2) + 
             Math.pow(particle.y - otherParticle.y, 2)
           );
           
-          if (distance < 100) {
+          if (distance < 150) {
+            const connectionOpacity = 0.15 * (1 - distance / 150);
+            
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `rgba(147, 51, 234, ${connectionOpacity})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
