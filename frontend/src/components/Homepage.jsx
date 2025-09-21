@@ -30,6 +30,13 @@ import ParticleBackground from './ParticleBackground';
 
 const Homepage = () => {
   const [isVisible, setIsVisible] = useState({});
+  const [activeService, setActiveService] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    project_type: 'website',
+    message: ''
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,33 +60,61 @@ const Homepage = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
+  const openWhatsApp = () => {
+    window.open('https://wa.me/94728382638', '_blank');
+  };
+
+  const openEmail = () => {
+    window.open('mailto:seranexdigital@gmail.com', '_blank');
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-blue-900/20"></div>
       <ParticleBackground />
       
       {/* Header */}
-      <header className="relative z-50 px-6 py-4">
+      <header className="relative z-50 px-4 sm:px-6 py-4 backdrop-blur-md bg-black/20 border-b border-gray-800/50">
         <nav className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-white" />
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
+              <Code2 className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold">SERANEX</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">SERANEX</span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="hover:text-cyan-400 transition-colors">Home</a>
-            <a href="#services" className="hover:text-cyan-400 transition-colors">Services</a>
-            <a href="#portfolio" className="hover:text-cyan-400 transition-colors">Portfolio</a>
-            <a href="#about" className="hover:text-cyan-400 transition-colors">About</a>
-            <a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a>
-            <span className="text-sm bg-cyan-500/20 px-3 py-1 rounded-full border border-cyan-400/30">
+          <div className="hidden lg:flex items-center space-x-8">
+            <button onClick={() => scrollToSection('home')} className="hover:text-purple-400 transition-colors duration-300 font-medium">Home</button>
+            <button onClick={() => scrollToSection('services')} className="hover:text-purple-400 transition-colors duration-300 font-medium">Services</button>
+            <button onClick={() => scrollToSection('portfolio')} className="hover:text-purple-400 transition-colors duration-300 font-medium">Portfolio</button>
+            <button onClick={() => scrollToSection('about')} className="hover:text-purple-400 transition-colors duration-300 font-medium">About</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-purple-400 transition-colors duration-300 font-medium">Contact</button>
+            <span className="text-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 px-4 py-2 rounded-full border border-purple-500/30 backdrop-blur-sm">
               Building Great Websites
             </span>
           </div>
           
-          <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white border-0">
-            <span className="mr-2">✨</span>
+          <Button 
+            onClick={() => scrollToSection('contact')}
+            className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0 px-6 py-2 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105"
+          >
+            <Rocket className="mr-2 w-4 h-4" />
             Get Started
           </Button>
         </nav>
