@@ -992,22 +992,121 @@ const Homepage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 container mx-auto px-6 py-8 border-t border-slate-700 text-center">
-        <div className="flex items-center justify-center space-x-2 text-gray-400">
-          <img 
-            src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" 
-            alt="Emergent" 
-            className="w-6 h-6 rounded"
-          />
-          <span>Made with</span>
-          <a 
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Emergent
-          </a>
+      <footer className="relative z-10 bg-gray-900/50 backdrop-blur-xl border-t border-gray-800/50 mt-20">
+        <div className="container mx-auto px-4 sm:px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            {/* Company Info */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/25">
+                  <Code2 className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">SERANEX</span>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Transforming businesses through cutting-edge digital solutions. We create amazing digital experiences that drive growth and success.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600/50 transition-all duration-300">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-cyan-600/50 transition-all duration-300">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600/50 transition-all duration-300">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600/50 transition-all duration-300">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800/50 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600/50 transition-all duration-300">
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="text-white font-bold mb-6">Our Services</h3>
+              <ul className="space-y-3">
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">Website Development</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">Mobile Apps</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">Graphic Design</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">Digital Marketing</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">E-commerce Solutions</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-300 hover:text-purple-400 transition-colors duration-300">Cloud Services</button></li>
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-bold mb-6">Quick Links</h3>
+              <ul className="space-y-3">
+                <li><button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Home</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">About Us</button></li>
+                <li><button onClick={() => scrollToSection('portfolio')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Portfolio</button></li>
+                <li><button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Testimonials</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Contact</button></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-white font-bold mb-6">Get In Touch</h3>
+              <div className="space-y-4">
+                <div 
+                  onClick={openEmail}
+                  className="flex items-start space-x-3 cursor-pointer group"
+                >
+                  <Mail className="w-5 h-5 text-purple-400 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <p className="text-gray-300 group-hover:text-purple-300 transition-colors">Email</p>
+                    <p className="text-sm text-gray-400">seranexdigital@gmail.com</p>
+                  </div>
+                </div>
+                <div 
+                  onClick={openWhatsApp}
+                  className="flex items-start space-x-3 cursor-pointer group"
+                >
+                  <MessageCircle className="w-5 h-5 text-green-400 mt-1 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <p className="text-gray-300 group-hover:text-green-300 transition-colors">WhatsApp</p>
+                    <p className="text-sm text-gray-400">0728382638</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-cyan-400 mt-1" />
+                  <div>
+                    <p className="text-gray-300">Location</p>
+                    <p className="text-sm text-gray-400">Sri Lanka</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-800/50 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-sm">
+                © 2025 SERANEX. All rights reserved.
+              </div>
+              <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms-of-service" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  Terms of Service
+                </Link>
+                <Link to="/disclaimer" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  Disclaimer
+                </Link>
+                <Link to="/cookie-policy" className="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  Cookie Policy
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
