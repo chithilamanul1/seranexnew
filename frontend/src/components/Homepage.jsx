@@ -24,9 +24,16 @@ import {
   Zap,
   Globe,
   Shield,
-  Rocket
+  Rocket,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ParticleBackground from './ParticleBackground';
+import Testimonials from './Testimonials';
 
 const Homepage = () => {
   const [isVisible, setIsVisible] = useState({});
