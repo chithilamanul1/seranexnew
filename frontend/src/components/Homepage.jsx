@@ -121,48 +121,56 @@ const Homepage = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative z-10 container mx-auto px-6 py-20 text-center">
+      <section id="home" className="relative z-10 container mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
         <div className={`transition-all duration-1000 ${isVisible.home ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
+          <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold mb-8 bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
             SERANEX
           </h1>
-          <h2 className="text-3xl md:text-4xl font-light mb-6">Digital Excellence</h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            &gt; We Create Amazing Digital Experiences
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-light mb-8 text-gray-200">Digital Excellence</h2>
+          <p className="text-lg sm:text-xl text-gray-300 mb-16 max-w-3xl mx-auto">
+            &gt; We Create Amazing Digital Experiences That Transform Businesses
           </p>
           
           {/* Service Icons */}
-          <div className="flex justify-center space-x-12 mb-16">
-            <div className="text-center group cursor-pointer">
-              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <Code2 className="w-8 h-8 text-white" />
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-12 mb-20">
+            <div className="text-center group cursor-pointer" onClick={() => scrollToSection('services')}>
+              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-purple-500/50 transition-all duration-300">
+                <Code2 className="w-10 h-10 text-white" />
               </div>
-              <p className="text-sm">Websites</p>
+              <p className="text-base font-semibold">Websites</p>
             </div>
-            <div className="text-center group cursor-pointer">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <Palette className="w-8 h-8 text-white" />
+            <div className="text-center group cursor-pointer" onClick={() => scrollToSection('services')}>
+              <div className="w-20 h-20 bg-gradient-to-r from-pink-600 to-purple-600 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-pink-500/50 transition-all duration-300">
+                <Palette className="w-10 h-10 text-white" />
               </div>
-              <p className="text-sm">Design</p>
+              <p className="text-base font-semibold">Design</p>
             </div>
-            <div className="text-center group cursor-pointer">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <TrendingUp className="w-8 h-8 text-white" />
+            <div className="text-center group cursor-pointer" onClick={() => scrollToSection('services')}>
+              <div className="w-20 h-20 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-cyan-500/50 transition-all duration-300">
+                <TrendingUp className="w-10 h-10 text-white" />
               </div>
-              <p className="text-sm">Marketing</p>
+              <p className="text-base font-semibold">Marketing</p>
             </div>
           </div>
 
-          <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             At SERANEX, we help businesses grow online. We build websites, create designs, and help you 
             reach more customers through smart digital marketing.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white border-0 px-8 py-3 text-lg">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white border-0 px-8 py-4 text-lg font-semibold shadow-2xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-105"
+            >
               Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 px-8 py-3 text-lg">
+            <Button 
+              onClick={() => scrollToSection('portfolio')}
+              variant="outline" 
+              className="border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 px-8 py-4 text-lg font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105"
+            >
+              <Play className="mr-2 w-5 h-5" />
               See Our Work
             </Button>
           </div>
@@ -170,19 +178,19 @@ const Homepage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="relative z-10 container mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 text-center">
-          <div>
-            <div className="text-4xl font-bold text-cyan-400">200+</div>
-            <p className="text-gray-300">Projects Done</p>
+      <section className="relative z-10 container mx-auto px-4 sm:px-6 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="p-6 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <div className="text-4xl sm:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text mb-2">200+</div>
+            <p className="text-gray-300 font-medium">Projects Done</p>
           </div>
-          <div>
-            <div className="text-4xl font-bold text-cyan-400">5+</div>
-            <p className="text-gray-300">Years</p>
+          <div className="p-6 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <div className="text-4xl sm:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text mb-2">5+</div>
+            <p className="text-gray-300 font-medium">Years</p>
           </div>
-          <div>
-            <div className="text-4xl font-bold text-cyan-400">98%</div>
-            <p className="text-gray-300">Happy Clients</p>
+          <div className="p-6 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+            <div className="text-4xl sm:text-5xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text mb-2">98%</div>
+            <p className="text-gray-300 font-medium">Happy Clients</p>
           </div>
         </div>
       </section>
