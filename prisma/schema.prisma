@@ -1,0 +1,10 @@
+// ... (User, Account, Session models remain the same) ...
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
