@@ -38,19 +38,19 @@ const Footer = () => (
 );
 
 export default function RootLayout({ children }) {
-  // NEW: Updated Clerk theme to match the Login_v5 template and Seranex branding
+  // Custom theme for Clerk components to match Seranex branding
   const clerkTheme = {
     variables: {
       colorPrimary: '#3B82F6', // Seranex blue for highlights
-      colorText: '#E5E7EB', // Lighter text for dark background
-      colorBackground: '#131316', // Slightly darker background for the card
-      colorInputBackground: '#1E1E21',
+      colorText: '#E5E7EB',
+      colorBackground: '#191919',
+      colorInputBackground: '#2d2d2d',
       colorInputText: '#F9FAFB',
     },
     elements: {
       card: {
-        backgroundColor: '#131316',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
         width: '100%',
       },
       socialButtonsBlockButton: {
