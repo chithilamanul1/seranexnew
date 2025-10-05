@@ -20,13 +20,14 @@ const useScrollAnimation = (ref) => {
       { threshold: 0.1 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [ref]);
@@ -56,6 +57,24 @@ const PortfolioCard = ({ title, category, imageSrc, delay }) => (
         <div className="absolute bottom-0 left-0 p-6">
             <p className="text-sm text-theme-blue font-semibold">{category}</p>
             <h3 className="text-xl font-bold text-white mt-1">{title}</h3>
+        </div>
+    </div>
+);
+
+const TestimonialCard = ({ quote, name, title, delay }) => (
+    <div 
+        className="fade-in-section h-full rounded-xl border border-white/10 bg-black/20 p-8"
+        style={{ transitionDelay: delay }}
+    >
+        <p className="italic text-white/70">"{quote}"</p>
+        <div className="mt-6 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-theme-blue flex items-center justify-center font-bold text-white">
+                {name.charAt(0)}
+            </div>
+            <div>
+                <div className="font-bold text-white">{name}</div>
+                <div className="text-sm text-white/60">{title}</div>
+            </div>
         </div>
     </div>
 );
@@ -111,12 +130,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- OUR PROCESS SECTION (NEW) --- */}
+      {/* --- OUR PROCESS SECTION --- */}
       <section ref={processRef} className="bg-white/5 py-16 sm:py-24 fade-in-section">
         <div className="container mx-auto px-6">
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">Our Proven Process</h2>
-                <p className="mx-auto mt-4 max-w-2xl text-white/70">We follow a structured path to ensure your project's success from concept to launch.</p>
+                <p className="mx-auto mt-4 max-w-2xl text-white/70">We follow a structured path to ensure your project&apos;s success from concept to launch.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div className="flex flex-col items-center">
@@ -143,12 +162,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- FEATURED WORK SECTION (NEW) --- */}
+      {/* --- FEATURED WORK SECTION --- */}
        <section ref={portfolioRef} className="container mx-auto px-6 py-16 sm:py-24 fade-in-section">
         <div className="w-full max-w-6xl mx-auto">
             <div className="text-center">
                 <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">Featured Work</h2>
-                <p className="mx-auto mt-4 max-w-2xl text-white/70">A glimpse into the innovative solutions we've delivered.</p>
+                <p className="mx-auto mt-4 max-w-2xl text-white/70">A glimpse into the innovative solutions we&apos;ve delivered.</p>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <PortfolioCard title="E-commerce Platform" category="Web Application" imageSrc="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2672&auto=format&fit=crop" delay="0s" />
@@ -160,12 +179,12 @@ export default function Home() {
         </div>
       </section>
       
-      {/* --- CALL TO ACTION SECTION (NEW) --- */}
+      {/* --- CALL TO ACTION SECTION --- */}
       <section ref={ctaRef} className="fade-in-section">
         <div className="container mx-auto px-6 py-24">
             <div className="relative isolate overflow-hidden bg-black/20 border border-white/10 px-6 py-24 text-center shadow-2xl rounded-2xl sm:px-16">
                 <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Ready to Start Your Project?</h2>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Let's build something amazing together. Contact us today for a free consultation and quote.</p>
+                <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Let&apos;s build something amazing together. Contact us today for a free consultation and quote.</p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                     <Link href="/contact" className="rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get a Quote</Link>
                     <Link href="/about" className="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></Link>
