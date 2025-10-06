@@ -130,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- OUR PROCESS SECTION (NEW) --- */}
+      {/* --- OUR PROCESS SECTION --- */}
       <section ref={processRef} className="bg-white/5 py-16 sm:py-24 fade-in-section">
         <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -162,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- FEATURED WORK SECTION (NEW) --- */}
+      {/* --- FEATURED WORK SECTION --- */}
        <section ref={portfolioRef} className="container mx-auto px-6 py-16 sm:py-24 fade-in-section">
         <div className="w-full max-w-6xl mx-auto">
             <div className="text-center">
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </section>
       
-      {/* --- CALL TO ACTION SECTION (NEW) --- */}
+      {/* --- CALL TO ACTION SECTION --- */}
       <section ref={ctaRef} className="fade-in-section">
         <div className="container mx-auto px-6 py-24">
             <div className="relative isolate overflow-hidden bg-black/20 border border-white/10 px-6 py-24 text-center shadow-2xl rounded-2xl sm:px-16">
