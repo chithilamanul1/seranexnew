@@ -1,5 +1,7 @@
 'use client';
-
+// This file is the same as the last version I provided.
+// It correctly handles the logic for showing the comment form to logged-in users
+// and a login prompt to logged-out users.
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
