@@ -13,7 +13,7 @@ const BlogPostCard = ({ title, date, excerpt, imageSrc, href }) => (
             />
         </div>
         <div className="p-6">
-            <p className="text-sm text-theme-blue mb-1">{date}</p>
+            <p className="text-sm text-theme-blue mb-1 font-semibold">{date}</p>
             <h3 className="text-xl font-bold text-white mb-3 transition-colors duration-200 group-hover:text-theme-blue">
                 {title}
             </h3>
@@ -38,7 +38,7 @@ export default function Blog() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <BlogPostCard 
             title="Mastering React Server Components"
-            date="October 1, 2024"
+            date="October 01, 2024"
             excerpt="A deep dive into how RSCs improve performance and simplify data fetching in modern web applications."
             imageSrc="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=2670&auto=format&fit=crop"
             href="#"
@@ -52,7 +52,7 @@ export default function Blog() {
           />
           <BlogPostCard 
             title="Scaling SEO: The Next-Level Strategy"
-            date="September 5, 2024"
+            date="September 05, 2024"
             excerpt="Beyond keywords: advanced techniques for improving discoverability and conversion rates for online stores."
             imageSrc="https://images.unsplash.com/photo-1457305238719-74e622b7246c?q=80&w=2670&auto=format&fit=crop"
             href="#"
