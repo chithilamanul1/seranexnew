@@ -1,69 +1,68 @@
-import { db } from '@/lib/firebase';
-import { doc, getDoc, collection, query, where, getDocs, orderBy } from 'firebase/firestore';
-import { currentUser } from '@clerk/nextjs/server';
-import CommentSection from '@/components/CommentSection'; // We will create this next
+import Link from 'next/link';
+import { db } from '@/lib/firebase'; // Adjust this path if your firebase.js is elsewhere
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 
-// Fetch a single post's details
-async function getPost(postId) {
-  const postRef = doc(db, 'posts', postId);
-  const postSnap = await getDoc(postRef);
+// Server-side function to fetch all posts
+async function getPosts() {
+  const postsCollection = collection(db, 'posts');
+  // Query to order posts by creation date, with the newest first
+  const q = query(postsCollection, orderBy('createdAt', 'desc'));
+  const postsSnapshot = await getDocs(q);
 
-  if (!postSnap.exists()) {
-    return null;
-  }
-  const data = postSnap.data();
-  return {
-    id: postSnap.id,
-    ...data,
-    createdAt: data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A',
-  };
-}
-// In /app/blog/page.js
-...
-<Link href={`/blog/${post.id}`}>
-  <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-indigo-600 cursor-pointer">{post.title}</h2>
-</Link>
-...
-// Fetch comments for a specific post
-async function getComments(postId) {
-  const commentsRef = collection(db, 'comments');
-  const q = query(commentsRef, where('postId', '==', postId), orderBy('createdAt', 'asc'));
-  const querySnapshot = await getDocs(q);
-  
-  return querySnapshot.docs.map(doc => {
+  const posts = postsSnapshot.docs.map(doc => {
     const data = doc.data();
     return {
       id: doc.id,
       ...data,
-      createdAt: data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleString() : 'N/A',
+      // Convert the Firestore Timestamp to a readable date string
+      createdAt: data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'Date not available',
     };
   });
+
+  return posts;
 }
 
-export default async function PostDetailPage({ params }) {
-  const { postId } = params;
-  const post = await getPost(postId);
-  const comments = await getComments(postId);
-  const user = await currentUser(); // Get the current user from Clerk
-
-  if (!post) {
-    return <div>Post not found.</div>;
-  }
+// This is the main blog page component
+export default async function BlogPage() {
+  const posts = await getPosts();
 
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
-      {/* Post Details */}
-      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">{post.title}</h1>
-        <p className="text-sm text-gray-500 mb-4">
-          Posted by {post.authorUsername} on {post.createdAt}
-        </p>
-        <p className="text-gray-700 whitespace-pre-wrap text-lg">{post.content}</p>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold text-gray-900">Blog Feed</h1>
+        <Link href="/create-post" className="inline-block bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Create New Post
+        </Link>
       </div>
 
-      {/* Comment Section Component */}
-      <CommentSection postId={post.id} initialComments={comments} user={user} />
+      <div className="space-y-6">
+        {posts.length > 0 ? (
+          posts.map(post => (
+            <div key={post.id} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+              {/* The post title is now a link to the detail page */}
+              <Link href={`/blog/${post.id}`}>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-indigo-600 cursor-pointer transition-colors">
+                  {post.title}
+                </h2>
+              </Link>
+              <p className="text-sm text-gray-500 mb-4">
+                Posted by {post.authorUsername} on {post.createdAt}
+              </p>
+              {/* Shows a short preview of the content */}
+              <p className="text-gray-700 whitespace-pre-wrap line-clamp-3">
+                {post.content}
+              </p>
+              <Link href={`/blog/${post.id}`} className="text-indigo-600 hover:underline mt-4 inline-block font-semibold">
+                Read more &rarr;
+              </Link>
+            </div>
+          ))
+        ) : (
+          <div className="text-center py-10 bg-gray-50 rounded-lg">
+            <p className="text-gray-600">No posts yet. Be the first to create one!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
-
