@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true, // ✅ prevents lint errors (like quote warnings) from breaking builds
-  },
-  experimental: {
-    serverActions: false, // ✅ disables Server Actions if you use static builds
+    // This is useful for preventing lint errors from failing the build.
+    ignoreDuringBuilds: true,
   },
   images: {
+    // These patterns allow you to use images from Unsplash and Google.
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,7 +17,6 @@ const nextConfig = {
       },
     ],
   },
-  output: 'standalone', // ✅ works great for Netlify + SSR
 };
 
-export default nextConfig;
+module.exports = nextConfig;
