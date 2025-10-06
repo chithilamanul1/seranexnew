@@ -1,100 +1,48 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useRef } from "react";
 
-const ParticlesComponent = (props) => {
-  const [init, setInit] = useState(false);
+const ParticlesComponent = ({ id = "tsparticles" }) => {
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-
-  const options = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "transparent",
-        },
-      },
-      fpsLimit: 120,
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "repulse",
+    // Dynamically load tsparticles via CDN
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.min.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.tsParticles) {
+        window.tsParticles.load(id, {
+          fullScreen: { enable: true, zIndex: -1 },
+          particles: {
+            number: { value: 60 },
+            color: { value: "#3B82F6" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: { min: 1, max: 3 } },
+            move: { enable: true, speed: 1, direction: "none", outModes: "out" },
           },
-        },
-        modes: {
-          repulse: {
-            distance: 80,
-            duration: 0.4,
+          interactivity: {
+            events: {
+              onHover: { enable: true, mode: "repulse" },
+              onClick: { enable: true, mode: "push" },
+            },
+            modes: {
+              repulse: { distance: 100 },
+              push: { quantity: 4 },
+            },
           },
-        },
-      },
-      particles: {
-        color: {
-          value: "#ffffff",
-        },
-        links: {
-          color: "#ffffff",
-          distance: 150,
-          enable: true,
-          opacity: 0.2,
-          width: 1,
-        },
-        move: {
-          direction: "none",
-          enable: true,
-          outModes: {
-            default: "bounce",
-          },
-          random: false,
-          speed: 1,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-          },
-          value: 80,
-        },
-        opacity: {
-          value: 0.2,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 3 },
-        },
-      },
-      detectRetina: true,
-    }),
-    []
-  );
+        });
+      }
+    };
+    document.body.appendChild(script);
 
-  if (init) {
-    return (
-      <Particles
-        id={props.id}
-        init={particlesLoaded}
-        options={options}
-        className="absolute inset-0 z-0"
-      />
-    );
-  }
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [id]);
 
-  return <></>;
+  return <div ref={containerRef} id={id}></div>;
 };
 
 export default ParticlesComponent;
