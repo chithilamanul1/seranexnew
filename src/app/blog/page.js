@@ -18,7 +18,12 @@ async function getPost(postId) {
     createdAt: data.createdAt ? new Date(data.createdAt.seconds * 1000).toLocaleDateString() : 'N/A',
   };
 }
-
+// In /app/blog/page.js
+...
+<Link href={`/blog/${post.id}`}>
+  <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-indigo-600 cursor-pointer">{post.title}</h2>
+</Link>
+...
 // Fetch comments for a specific post
 async function getComments(postId) {
   const commentsRef = collection(db, 'comments');
@@ -61,3 +66,4 @@ export default async function PostDetailPage({ params }) {
     </div>
   );
 }
+
