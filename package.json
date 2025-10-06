@@ -16,8 +16,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "firebase": "^9.23.0",
-    "@tsparticles/react": "^2.9.3",
-    "@tsparticles/slim": "^2.9.3"
+    "@tsparticles/react": "^2.11.0",
+    "@tsparticles/slim": "^2.11.0"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
