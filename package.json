@@ -17,7 +17,7 @@
     "firebase": "^9.25.0",
     "react-tsparticles": "^2.10.1",
     "tsparticles-slim": "^2.10.1",
-    "@clerk/nextjs": "^5.14.0"
+    "@clerk/nextjs": "^5.13.0"
   },
   "devDependencies": {
     "eslint": "8.50.0",
