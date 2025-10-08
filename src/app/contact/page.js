@@ -31,15 +31,15 @@ export default function ContactPage() {
               <ContactInfoItem 
                 icon={<FaEnvelope />}
                 title="Email Us"
-                content="contact@seranex.com"
-                link="mailto:contact@seranex.com"
+                content="contact@seranex.org"
+                link="mailto:contact@seranex.org"
                 description="The best way to reach us for project inquiries and detailed questions."
               />
               <ContactInfoItem 
                 icon={<FaPhone />}
                 title="Call Us"
-                content="+94 123 456 789"
-                link="tel:+94123456789"
+                content="+94 728328638 "
+                link="https://wa.link/qmj41a"
                 description="For urgent matters or to schedule an initial consultation call."
               />
             </div>
@@ -87,3 +87,4 @@ const ContactInfoItem = ({ icon, title, content, link, description }) => (
     </div>
   </div>
 );
+
