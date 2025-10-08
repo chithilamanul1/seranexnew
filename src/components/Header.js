@@ -31,6 +31,8 @@ export default function Header() {
                 <NavLink href="/portfolio">Portfolio</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="https://forums.seranex.org">Forums</NavLink>
+                <NavLink href="/careers">Careers</NavLink>
+                <NavLink href="/faq">FAQ</NavLink>
                 <NavLink href="/contact">Contact</NavLink>
             </nav>
             <div className="flex items-center gap-4">
@@ -66,4 +68,5 @@ export default function Header() {
     </header>
   );
 };
+
 
