@@ -31,5 +31,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // --- THIS IS THE FIX ---
+  plugins: [
+    require('@tailwindcss/typography'), // This line activates the prose classes
+  ],
+  // --- END OF FIX ---
 }
