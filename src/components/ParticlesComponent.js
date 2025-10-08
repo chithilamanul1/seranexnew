@@ -1,48 +1,40 @@
-"use client";
+// src/components/ParticlesComponent.js
+import React from 'react';
+import { Particles } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
 
-import { useEffect, useRef } from "react";
-
-const ParticlesComponent = ({ id = "tsparticles" }) => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    // Dynamically load tsparticles via CDN
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.min.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.tsParticles) {
-        window.tsParticles.load(id, {
-          fullScreen: { enable: true, zIndex: -1 },
-          particles: {
-            number: { value: 60 },
-            color: { value: "#3B82F6" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5 },
-            size: { value: { min: 1, max: 3 } },
-            move: { enable: true, speed: 1, direction: "none", outModes: "out" },
-          },
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "repulse" },
-              onClick: { enable: true, mode: "push" },
-            },
-            modes: {
-              repulse: { distance: 100 },
-              push: { quantity: 4 },
-            },
-          },
-        });
-      }
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [id]);
-
-  return <div ref={containerRef} id={id}></div>;
+const options = {
+  fpsLimit: 60,
+  interactivity: {
+    detectsOn: 'canvas',
+    events: {
+      onHover: { enable: true, mode: 'repulse' },
+      resize: true
+    },
+    modes: { repulse: { distance: 120 } }
+  },
+  particles: {
+    number: { value: 40, density: { enable: true, area: 800 } },
+    color: { value: ['#60A5FA', '#38BDF8', '#7C3AED'] },
+    shape: { type: 'circle' },
+    opacity: { value: 0.75, random: { enable: true, minimumValue: 0.3 } },
+    size: { value: { min: 1, max: 6 }, random: true },
+    move: { enable: true, speed: 0.8, outModes: 'bounce' },
+    links: { enable: true, distance: 150, color: '#2dd4bf', opacity: 0.12, width: 1 }
+  }
 };
 
-export default ParticlesComponent;
+export default function ParticlesComponent(props) {
+  const init = async (engine) => {
+    await loadSlim(engine);
+  };
+
+  return (
+    <Particles
+      id={props.id || 'tsparticles'}
+      init={init}
+      options={options}
+      style={{ position: 'absolute', inset: 0, zIndex: 0 }}
+    />
+  );
+}
