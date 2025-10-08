@@ -1,112 +1,102 @@
-// src/app/page.js
-'use client';
+'use client'; // This component uses client-side hooks for animations
 
-import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { FaLaptopCode, FaPaintBrush, FaRocket, FaHandshake, FaBullseye, FaLightbulb } from 'react-icons/fa';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-const ParticlesComponent = dynamic(() => import('../components/ParticlesComponent'), { ssr: false });
 
-const useScrollReveal = (ref) => {
+export default function HomePage() {
+
+  // This hook is for scroll animations
   useEffect(() => {
-    if (!ref?.current) return;
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('is-visible');
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
       });
-    }, { threshold: 0.12 });
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [ref]);
-};
+    }, { threshold: 0.1 });
 
-const Service = ({ title, text }) => (
-  <div className="card p-6 rounded-2xl">
-    <h3 className="text-lg font-semibold text-white">{title}</h3>
-    <p className="mt-2 text-white/70 text-sm">{text}</p>
-  </div>
-);
+    const targets = document.querySelectorAll('.scroll-animate');
+    targets.forEach(target => observer.observe(target));
 
-export default function Home() {
-  const servicesRef = useRef(null);
-  useScrollReveal(servicesRef);
+    // Cleanup observer on component unmount
+    return () => targets.forEach(target => observer.unobserve(target));
+  }, []);
 
   return (
-    <div className="relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <ParticlesComponent />
+    <>
+      <Head>
+        <title>SERANEX - Modern Digital Solutions in Sri Lanka</title>
+        <meta name="description" content="Based in Seeduwa, SERANEX offers clear, powerful web design, graphic design, and custom software for Sri Lankan businesses." />
+      </Head>
+
+      <div className="min-h-screen w-full bg-gray-900 text-white overflow-x-hidden font-sans">
+        {/* Animated Gradient Background */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-tr from-blue-900 via-gray-900 to-indigo-900 animate-gradient-move"></div>
+        </div>
+
+        {/* Main Content */}
+        <main className="relative z-10">
+          
+          {/* Hero Section */}
+          <section className="min-h-screen flex flex-col justify-center items-center text-center p-8 relative">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter animate-fade-in-down bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+              Ideas Into Reality
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg md:text-xl text-blue-200 animate-fade-in-up">
+              We turn your business goals into beautiful, high-performance websites and software. Clear, simple, and effective digital solutions, right here in Sri Lanka.
+            </p>
+            <a
+              href="#contact"
+              className="mt-8 px-8 py-4 bg-white text-blue-700 font-bold uppercase rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-200"
+            >
+              Start Your Project
+            </a>
+          </section>
+
+          {/* Why Choose Us Section */}
+          <section id="why-us" className="py-20 px-8 bg-black bg-opacity-20">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 scroll-animate">Why Choose SERANEX?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div className="scroll-animate"><FaHandshake className="text-5xl text-blue-400 mx-auto mb-4" /><h3 className="text-2xl font-bold mb-2">Local & Reliable</h3><p className="text-blue-200">We're based right here in Seeduwa, ready to provide dedicated support for your business.</p></div>
+                <div className="scroll-animate delay-100"><FaBullseye className="text-5xl text-blue-400 mx-auto mb-4" /><h3 className="text-2xl font-bold mb-2">Clear Communication</h3><p className="text-blue-200">No confusing jargon. We speak your language and focus on your business goals.</p></div>
+                <div className="scroll-animate delay-200"><FaLightbulb className="text-5xl text-blue-400 mx-auto mb-4" /><h3 className="text-2xl font-bold mb-2">Modern Technology</h3><p className="text-blue-200">We use the latest tools like Next.js to build fast, secure, and future-proof websites.</p></div>
+              </div>
+            </div>
+          </section>
+
+          {/* Services Section */}
+          <section id="services" className="py-20 px-8">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 scroll-animate">Our Services</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 shadow-xl transform hover:-translate-y-2 transition-transform duration-300 scroll-animate">
+                  <FaLaptopCode className="text-5xl text-blue-400 mb-4" /><h3 className="text-2xl font-bold mb-2">Web Development</h3><p className="text-blue-200">We build professional websites that look great on all devices and help you attract more customers.</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 shadow-xl transform hover:-translate-y-2 transition-transform duration-300 md:scale-105 scroll-animate delay-100">
+                  <FaPaintBrush className="text-5xl text-blue-400 mb-4" /><h3 className="text-2xl font-bold mb-2">Graphic Design</h3><p className="text-blue-200">From logos to marketing materials, we create a strong brand identity that makes you stand out.</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 shadow-xl transform hover:-translate-y-2 transition-transform duration-300 scroll-animate delay-200">
+                  <FaRocket className="text-5xl text-blue-400 mb-4" /><h3 className="text-2xl font-bold mb-2">Software Solutions</h3><p className="text-blue-200">We build custom apps and tools to solve your unique business problems and improve efficiency.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Final Call to Action Section */}
+          <section id="contact" className="py-20 px-8 text-center bg-gradient-to-t from-black/50 to-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold scroll-animate">Have a Project in Mind?</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-blue-200 scroll-animate">Let's talk about how we can help your business grow. Get in touch for a free, no-obligation consultation.</p>
+            <Link href="/contact" className="mt-8 inline-block px-12 py-4 bg-white text-blue-700 font-bold uppercase rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 scroll-animate">
+              Contact Us Today
+            </Link>
+          </section>
+
+        </main>
       </div>
-
-      <section className="relative z-10 min-h-screen flex items-center">
-        <div className="container mx-auto px-6 py-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white">
-                Clean. Professional. Fast.
-              </h1>
-              <p className="mt-6 text-lg text-white/70 max-w-xl">
-                We design and build modern digital experiences — websites, mobile apps and brand systems — with performance and clarity in mind.
-              </p>
-
-              <div className="mt-8 flex gap-4">
-                <Link href="/services" className="rounded-md bg-gradient-to-r from-theme-blue to-theme-indigo px-6 py-3 font-semibold text-black shadow-lg">Our Services</Link>
-                <Link href="/contact" className="rounded-md border border-white/10 px-6 py-3 text-white">Contact Us</Link>
-              </div>
-            </div>
-
-            <div ref={servicesRef} className="space-y-4">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Service title="Custom Web Apps" text="Scalable, secure, and fast web applications tailored to your business needs." />
-                <Service title="Mobile Solutions" text="Native & cross-platform mobile apps with smooth UX and real performance." />
-                <Service title="Design Systems" text="Clean, reusable UI systems to speed development and maintain brand consistency." />
-                <Service title="Optimization" text="Performance tuning, SEO best practices and accessibility improvements." />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative z-10 container mx-auto px-6 py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white">Featured Work</h2>
-          <p className="mt-3 text-white/70">Selected projects showcasing design, engineering, and product thinking.</p>
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="card overflow-hidden rounded-2xl p-0">
-            <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1400&auto=format&fit=crop" alt="project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-white">E-commerce Platform</h3>
-              <p className="mt-1 text-white/70 text-sm">Fast checkout and modular architecture.</p>
-            </div>
-          </div>
-
-          <div className="card overflow-hidden rounded-2xl p-0">
-            <img src="https://images.unsplash.com/photo-1556742400-b5d3fef511c9?q=80&w=1400&auto=format&fit=crop" alt="project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-white">Analytics Dashboard</h3>
-              <p className="mt-1 text-white/70 text-sm">Data-driven insights with crisp visuals.</p>
-            </div>
-          </div>
-
-          <div className="card overflow-hidden rounded-2xl p-0">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1400&auto=format&fit=crop" alt="project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-white">Mobile Health App</h3>
-              <p className="mt-1 text-white/70 text-sm">Secure, reliable, and delightful UX.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative z-10 container mx-auto px-6 py-24">
-        <div className="rounded-2xl border border-white/6 bg-black/30 p-12 text-center">
-          <h3 className="text-2xl font-semibold text-white">Ready to start?</h3>
-          <p className="mt-3 text-white/70">Let's discuss your project and build something exceptional together.</p>
-          <div className="mt-6">
-            <Link href="/contact" className="rounded-md bg-gradient-to-r from-theme-blue to-theme-indigo px-6 py-3 font-semibold text-black">Get a Quote</Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }
