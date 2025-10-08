@@ -2,43 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom vars */
-:root {
-  --bg: #0b1020;
-  --panel: rgba(255,255,255,0.04);
-  --muted: rgba(255,255,255,0.65);
-  --accent: #38bdf8;
-  --accent-2: #7c3aed;
+/* Add these new animation styles */
+
+@keyframes gradient-move {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5%, 10%) rotate(10deg); }
+  50% { transform: translate(10%, 5%) rotate(0deg); }
+  75% { transform: translate(5%, -10%) rotate(-10deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* Global */
-html, body, #__next {
-  height: 100%;
-  background: linear-gradient(180deg, rgba(6,10,20,1) 0%, rgba(8,12,18,1) 100%);
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #f8fafc;
+.animate-gradient-move {
+  animation: gradient-move 20s ease infinite;
 }
 
-/* Soft glass card */
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(8px);
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade-in utilities for reveal */
-.fade-in-section {
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  opacity: 0; /* Start hidden */
+  animation-fill-mode: forwards;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+
+/* Class for scroll animations */
+.scroll-animate {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 600ms ease, transform 600ms ease;
-}
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Simple type animation (small) */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(20px);
 }
