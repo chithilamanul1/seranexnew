@@ -17,11 +17,9 @@ body {
 }
 
 /* =========================
-   Typography (for prose content)
+   NOTE: The .prose class is handled by the typography plugin.
+   It should not be redefined here.
    ========================= */
-.prose {
-  @apply prose prose-invert max-w-none;
-}
 
 /* =========================
    Links & Buttons
