@@ -1,7 +1,6 @@
 'use client';
 
 import './globals.css';
-import 'easymde/dist/easymde.min.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import Header from '../components/Header';
 import Link from 'next/link';
@@ -58,5 +57,6 @@ export default function RootLayout({ children }) {
     </ClerkProvider>
   );
 }
+
 
 
