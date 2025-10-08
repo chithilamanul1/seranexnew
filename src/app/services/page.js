@@ -1,106 +1,90 @@
-import Link from 'next/link';
+import Head from 'next/head';
+import { FaLaptopCode, FaPaintBrush, FaRocket, FaMobileAlt, FaDatabase, FaCloud } from 'react-icons/fa';
 
-const ServiceCard = ({ icon, title, description }) => (
-  <div className="flex flex-col gap-4 rounded-lg bg-white/5 p-6 border border-white/10 transition-colors hover:bg-white/10">
-    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/10 text-white">
-      <span className="material-symbols-outlined text-3xl">{icon}</span>
-    </div>
-    <h3 className="text-xl font-bold text-white">{title}</h3>
-    <p className="text-white/70 text-sm">{description}</p>
-  </div>
-);
-
-const TimelineItem = ({ number, title, description }) => (
-    <div className="relative pl-8">
-        <div className="absolute left-0 top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black font-bold text-xs">
-            {number}
-        </div>
-        <h4 className="font-bold text-lg text-white">{title}</h4>
-        <p className="mt-1 text-white/70">{description}</p>
-    </div>
-);
-
-export default function Services() {
+export default function ServicesPage() {
   return (
-    <main className="flex-grow">
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-extrabold tracking-tighter text-white sm:text-5xl md:text-6xl">
-              Our Digital Solutions
-            </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/70 sm:text-xl">
-              A comprehensive suite of services to bring your ideas to life, from concept to successful launch and beyond.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      <Head>
+        <title>Our Services | SERANEX</title>
+        <meta name="description" content="Explore our expert services in Web Application Engineering, Strategic Branding & UI/UX, and Custom Software Solutions." />
+      </Head>
 
-      {/* Services Grid Section */}
-      <section className="py-16 md:py-24 bg-white/5">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Services</h2>
-            <p className="mt-3 max-w-2xl mx-auto text-lg text-white/70">
-              A structured suite of services to ensure your project's success.
+      <div className="w-full pt-24 sm:pt-32">
+        {/* Page Header */}
+        <section className="text-center px-6 pb-16">
+          <div className="mx-auto max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter animate-fade-in-down">
+              Our Expertise
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-400 animate-fade-in-up [animation-delay:0.2s]">
+              We deliver end-to-end digital solutions engineered for performance, scale, and impact. Explore our core competencies below.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard
-              icon="code"
-              title="Web Development"
-              description="High-performance, scalable websites and custom web applications built with modern frameworks."
+        </section>
+
+        {/* Detailed Services Section */}
+        <section className="py-16 px-6 bg-black/30">
+          <div className="max-w-7xl mx-auto space-y-24">
+            <ServiceDetail
+              icon={<FaLaptopCode />}
+              title="Web Application Engineering"
+              description="We architect and build robust, high-performance web applications that serve as the backbone of your digital presence. Our approach goes beyond simple websites to create scalable platforms that solve complex business problems. We focus on clean architecture, secure code, and a flawless user experience to deliver products that are both powerful and a pleasure to use."
+              features={[
+                "Next.js & React Development",
+                "E-Commerce & Payment Gateway Integration",
+                "Content Management Systems (CMS)",
+                "API Design & Integration",
+              ]}
             />
-            <ServiceCard
-              icon="adb"
-              title="Mobile App Development"
-              description="Native (iOS/Android) and cross-platform mobile apps focused on intuitive UX and robust performance."
+            <ServiceDetail
+              icon={<FaPaintBrush />}
+              title="Strategic Branding & UI/UX Design"
+              description="A strong brand and intuitive design are critical for success. We work with you to build a complete brand identity that connects with your target audience. Our UI/UX process is data-driven and user-centric, ensuring that every interaction is seamless, beautiful, and aligned with your business goals. We design experiences that users love."
+              features={[
+                "Logo Design & Brand Identity Systems",
+                "User Interface (UI) & User Experience (UX) Design",
+                "Interactive Prototyping & Wireframing",
+                "Design System Development",
+              ]}
+              reverse={true}
             />
-            <ServiceCard
-              icon="palette"
-              title="Graphic & UI/UX Design"
-              description="Creating intuitive interfaces, engaging user experiences, and stunning visuals that define your brand."
-            />
-            <ServiceCard
-              icon="monitoring"
-              title="Digital Marketing"
-              description="Data-driven social media, content, and paid ad strategies to increase visibility and drive qualified leads."
-            />
-             <ServiceCard
-              icon="flag"
-              title="Branding & Identity"
-              description="Developing a complete brand identity, including logos, style guides, and messaging that resonates with your audience."
-            />
-            <ServiceCard
-              icon="trending_up"
-              title="SEO Services"
-              description="Improving your search engine ranking through technical SEO, content optimization, and link-building strategies."
+            <ServiceDetail
+              icon={<FaRocket />}
+              title="Custom Software & Mobile Solutions"
+              description="When off-the-shelf software doesn't meet your needs, we provide bespoke solutions tailored to your unique operational challenges. We engineer custom internal tools, enterprise software, and cross-platform mobile applications that automate processes, increase efficiency, and provide a significant competitive advantage in your market."
+              features={[
+                "Cross-Platform Mobile App Development",
+                "Internal Business Process Automation",
+                "Data Dashboards & Analytics Tools",
+                "Third-Party Software Integration",
+              ]}
             />
           </div>
-        </div>
-      </section>
-      
-      {/* Development Lifecycle Section */}
-      <section className="py-16 md:py-24 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Development Lifecycle</h2>
-            <p className="mt-3 max-w-2xl mx-auto text-lg text-white/70">
-              A structured and transparent process from start to finish.
-            </p>
-          </div>
-          <div className="relative max-w-2xl mx-auto">
-            <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-white/10"></div>
-            <div className="grid grid-cols-1 gap-12">
-                <TimelineItem number="1" title="Discovery & Strategy" description="Understanding your business goals, target audience, and project requirements." />
-                <TimelineItem number="2" title="Design & Prototyping" description="Creating wireframes, mockups, and interactive prototypes to visualize the user experience." />
-                <TimelineItem number="3" title="Development & Testing" description="Developing with clean code and rigorous testing to ensure quality, performance, and security." />
-                <TimelineItem number="4" title="Deployment & Launch" description="Launching your project on target platforms (Web/App Stores) with post-launch monitoring." />
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* Footer is already in your layout.js */}
+      </div>
+    </>
   );
 }
+
+// Reusable Detailed Service Component
+const ServiceDetail = ({ icon, title, description, features, reverse = false }) => (
+  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:grid-flow-col-dense' : ''}`}>
+    <div className={`text-5xl text-blue-500 mx-auto lg:mx-0 ${reverse ? 'lg:col-start-2' : ''}`}>
+      {icon}
+    </div>
+    <div className={reverse ? 'lg:col-start-1' : ''}>
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h2>
+      <p className="text-gray-400 leading-relaxed mb-6">{description}</p>
+      <ul className="space-y-2">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-center">
+            <svg className="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+            <span className="text-gray-300">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
