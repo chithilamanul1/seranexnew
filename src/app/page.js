@@ -28,12 +28,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 animate-fade-in-up [animation-delay:0.4s]">
               <a
-                href="#services"
+                href="./services"
                 className="rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 transition-transform transform hover:scale-105"
               >
                 View Our Expertise
               </a>
-              <a href="#contact" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">
+              <a href="./contact" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">
                 Start a Conversation <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -183,3 +183,4 @@ const Footer = () => (
     </div>
   </footer>
 );
+
