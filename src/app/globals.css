@@ -1,47 +1,136 @@
+/* =========================
+   globals.css
+   Tailwind + Typography + Particles setup
+   ========================= */
+
+/* Tailwind base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Add these new animation styles */
-
-@keyframes gradient-move {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(5%, 10%) rotate(10deg); }
-  50% { transform: translate(10%, 5%) rotate(0deg); }
-  75% { transform: translate(5%, -10%) rotate(-10deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+/* =========================
+   Custom Font & Body
+   ========================= */
+body {
+  @apply bg-gray-900 text-white font-sans antialiased;
+  scroll-behavior: smooth;
 }
 
-.animate-gradient-move {
-  animation: gradient-move 20s ease infinite;
+/* =========================
+   Typography (for prose content)
+   ========================= */
+.prose {
+  @apply prose prose-invert max-w-none;
 }
 
+/* =========================
+   Links & Buttons
+   ========================= */
+a {
+  @apply text-blue-400 hover:text-blue-500 transition-colors duration-300;
+}
+
+button {
+  @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300;
+}
+
+/* =========================
+   Headings
+   ========================= */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-white;
+}
+
+h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+h3 { @apply text-2xl md:text-3xl lg:text-4xl; }
+
+/* =========================
+   Inputs & Forms
+   ========================= */
+input, textarea, select {
+  @apply bg-gray-800 border border-gray-700 rounded-md text-white py-2 px-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200;
+}
+
+/* =========================
+   Particles Canvas
+   ========================= */
+#tsparticles {
+  @apply fixed top-0 left-0 w-full h-full z-0 pointer-events-none;
+}
+
+/* =========================
+   Scrollbar Styles
+   ========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-600;
+}
+
+/* =========================
+   Utility Overrides
+   ========================= */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.hidden {
+  @apply hidden;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+/* =========================
+   Responsive Utilities
+   ========================= */
+@media (max-width: 768px) {
+  .text-responsive {
+    @apply text-base;
+  }
+}
+
+/* =========================
+   Custom Animations
+   ========================= */
 @keyframes fade-in-down {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in-down {
   animation: fade-in-down 0.8s ease-out forwards;
 }
 
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .animate-fade-in-up {
-  opacity: 0; /* Start hidden */
-  animation-fill-mode: forwards;
-}
-
-/* Delay utilities */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-
-/* Class for scroll animations */
-.scroll-animate {
-  opacity: 0;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  transform: translateY(20px);
+  animation: fade-in-up 0.8s ease-out forwards;
 }
