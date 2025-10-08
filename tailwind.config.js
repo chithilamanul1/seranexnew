@@ -1,20 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        'primary': '#111827', // Deep, dark background
-        'secondary': '#1F2937', // Lighter gray for cards/surfaces
-        'accent': '#3B82F6',   // A vibrant, professional blue
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['"Fira Code"', 'monospace'],
+        primary: {
+          DEFAULT: '#2563eb', // A professional blue (blue-600)
+          'light': '#3b82f6', // blue-500
+          'dark': '#1d4ed8',  // blue-700
+        },
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.8s ease-out forwards',
@@ -32,7 +31,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-};
+  plugins: [],
+}
