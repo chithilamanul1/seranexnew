@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { blogPosts } from '@/lib/blogData'; // Import your articles
+import Image from 'next/image'; // Import the Next.js Image component
+import { blogPosts } from '@/lib/blogData';
 import { FaArrowRight } from 'react-icons/fa';
 
 export default function BlogPage() {
@@ -26,7 +27,7 @@ export default function BlogPage() {
 
         {/* Blog Grid */}
         <section className="px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
@@ -37,14 +38,25 @@ export default function BlogPage() {
   );
 }
 
-// Reusable Post Card Component
+// Reusable Post Card Component - Redesigned
 const PostCard = ({ post }) => (
-  <Link href={`/blog/${post.slug}`} className="group block bg-gray-800/50 p-8 rounded-2xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
-    <h2 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{post.title}</h2>
-    <p className="text-gray-400 text-sm leading-relaxed mb-4">{post.description}</p>
-    <div className="flex items-center text-sm font-semibold text-blue-400">
-      Read More
-      <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+  <Link href={`/blog/${post.slug}`} className="group block bg-gray-800/50 rounded-2xl border border-gray-700 shadow-lg transform hover:-translate-y-2 transition-transform duration-300 overflow-hidden">
+    <div className="relative h-48 w-full">
+      <Image 
+        src={post.image}
+        alt={post.title}
+        layout="fill"
+        objectFit="cover"
+        className="transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+    <div className="p-6">
+      <h2 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{post.title}</h2>
+      <p className="text-gray-400 text-sm leading-relaxed mb-4">{post.description}</p>
+      <div className="flex items-center text-sm font-semibold text-blue-400">
+        Read Article
+        <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+      </div>
     </div>
   </Link>
 );
