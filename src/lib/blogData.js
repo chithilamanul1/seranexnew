@@ -1,5 +1,5 @@
 // This file acts as a simple database for your blog posts.
-// It now contains a total of 18 SEO-focused articles.
+// All image URLs have been verified and updated for a professional look.
 
 export const blogPosts = [
   {
@@ -46,7 +46,7 @@ export const blogPosts = [
     description: 'The Colombo market is crowded. Here are 5 critical factors to consider when selecting a web design partner to ensure your project is a success.',
     author: 'Chithila Manul',
     date: 'October 09, 2025',
-    image: 'https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=1400&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop',
     content: `
       <p class="lead">Selecting a web design company in Colombo can be a challenge. How do you choose the right partner? It's about more than just a flashy portfolio. Here are five critical factors to consider.</p>
       <h2>1. Technical Expertise</h2>
@@ -63,8 +63,8 @@ export const blogPosts = [
   },
   {
     slug: 'sri-lankan-payment-gateways-payhere-vs-webxpay',
-    title: 'Sri Lankan Payment Gateways: PayHere vs WEBXPAY for Your Website',
-    description: 'A deep dive into the two leading payment gateways in Sri Lanka. We compare PayHere and WEBXPAY on features, pricing, and integration to help you choose the best for your e-commerce site.',
+    title: 'Sri Lankan Payment Gateways: PayHere vs WEBXPAY',
+    description: 'A deep dive into the two leading payment gateways in Sri Lanka. We compare features, pricing, and integration to help you choose the best for your e-commerce site.',
     author: 'Chithila Manul',
     date: 'October 08, 2025',
     image: 'https://images.unsplash.com/photo-1591515286348-2b02a239c8df?q=80&w=1400&auto=format&fit=crop',
@@ -85,7 +85,7 @@ export const blogPosts = [
     description: 'WordPress powers a huge portion of the web, but is it the right choice for your new business? We explore the hidden costs, security risks, and performance issues of legacy platforms.',
     author: 'Chithila Manul',
     date: 'October 06, 2025',
-    image: 'https://images.unsplash.com/photo-1599339343336-e6308d7122a0?q=80&w=1400&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1400&auto=format&fit=crop',
     content: `<p class="lead">Many web developers in Sri Lanka still offer WordPress sites. While it was a great tool a decade ago, for modern, performance-focused businesses, it often comes with significant downsides.</p><h2>Performance Issues</h2><p>Out of the box, WordPress sites can be slow due to a heavy reliance on plugins and outdated architecture. In a mobile-first market like Sri Lanka, speed is everything.</p><h2>Security Vulnerabilities</h2><p>The popularity of WordPress and its vast plugin ecosystem make it a constant target for hackers. Keeping a site secure requires constant, vigilant maintenance.</p><h2>The Modern Alternative: Headless & Jamstack</h2><p>We explain why modern frameworks like Next.js offer superior performance, security, and scalability, providing a better long-term investment for your business.</p>`
   },
   {
@@ -103,7 +103,7 @@ export const blogPosts = [
     description: 'What goes into creating a memorable logo? We walk you through our step-by-step process, from initial concept and research to final delivery, tailored for the Sri Lankan market.',
     author: 'Chithila Manul',
     date: 'October 04, 2025',
-    image: 'https://images.unsplash.com/photo-1607427532294-917af52d507a?q=80&w=1400&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1609923231433-a3b5b16a41df?q=80&w=1400&auto=format&fit=crop',
     content: `<p class="lead">A logo is the face of your brand. Our design process is a collaborative journey to capture the essence of your business in a single, powerful mark.</p><h2>1. Discovery & Research</h2><p>We start by learning everything about your business, your target audience in Sri Lanka, and your competitors.</p><h2>2. Concept Sketching</h2><p>Our designers explore multiple creative directions, sketching out ideas that represent your brand's values.</p><h2>3. Digital Design & Refinement</h2><p>We bring the best concepts to life digitally, refining the typography, color, and composition based on your feedback.</p><h2>4. Final Delivery</h2><p>You receive a complete logo package with all the files you need for print, web, and social media.</p>`
   },
   {
@@ -139,7 +139,7 @@ export const blogPosts = [
     description: 'Still using a @gmail.com address for your business? We explain why a custom email address like info@yourbrand.lk is critical for building trust and professionalism in Sri Lanka.',
     author: 'Chithila Manul',
     date: 'September 30, 2025',
-    image: 'https://images.unsplash.com/photo-1557853147-3b735523277b?q=80&w=1400&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1554774853-719586f82d77?q=80&w=1400&auto=format&fit=crop',
     content: `<p class="lead">Your email address is often the first impression you make on a potential client. An address like mybusiness@gmail.com can look amateurish. A custom address like info@seranex.org inspires confidence.</p><h2>Building Trust and Credibility</h2><p>A professional email address shows that you are a serious, established business.</p><h2>Brand Reinforcement</h2><p>Every email you send reinforces your brand name and website address.</p><h2>How to Set It Up</h2><p>We provide a simple guide to setting up a professional email address using services like Google Workspace or Zoho Mail, which are affordable and powerful.</p>`
   },
   {
