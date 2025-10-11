@@ -1,15 +1,14 @@
 import Head from 'next/head';
+import Image from 'next/image'; // Import the Next.js Image component
 import { blogPosts } from '@/lib/blogData';
 import { notFound } from 'next/navigation';
 
-// This function tells Next.js which pages to pre-build
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// Helper function to get the data for a specific post
 function getPost(slug) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) {
@@ -18,35 +17,48 @@ function getPost(slug) {
   return post;
 }
 
+export async function generateMetadata({ params }) {
+  const post = getPost(params.slug);
+  return {
+    title: post.title,
+    description: post.description,
+  };
+}
+
 export default function PostPage({ params }) {
   const post = getPost(params.slug);
 
   return (
     <>
-      <Head>
-        <title>{post.title} | SERANEX Blog</title>
-        <meta name="description" content={post.description} />
-      </Head>
-
-      <div className="w-full pt-24 sm:pt-32 pb-16">
-        <main className="max-w-4xl mx-auto px-6">
-          {/* Post Header */}
-          <div className="text-center animate-fade-in-down mb-12">
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">
+      <article className="w-full pt-20">
+        {/* Article Header with Image */}
+        <header className="relative h-96">
+          <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
+          <Image 
+            src={post.image}
+            alt={post.title}
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+          />
+          <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white p-6">
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter animate-fade-in-down">
               {post.title}
             </h1>
-            <p className="mt-4 text-sm text-gray-400">
+            <p className="mt-4 text-sm text-gray-300 animate-fade-in-up [animation-delay:0.2s]">
               By {post.author} on {post.date}
             </p>
           </div>
+        </header>
 
-          {/* Post Content */}
+        {/* Article Content */}
+        <main className="max-w-4xl mx-auto px-6 py-16">
           <div 
             className="prose prose-invert lg:prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-a:text-blue-400 hover:prose-a:text-blue-500 prose-p:text-gray-300 prose-li:text-gray-300"
             dangerouslySetInnerHTML={{ __html: post.content }} 
           />
         </main>
-      </div>
+      </article>
     </>
   );
 }
