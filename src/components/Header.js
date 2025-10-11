@@ -31,6 +31,7 @@ export default function Header() {
                 <NavLink href="/portfolio">Portfolio</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="testimonials">Reviews</NavLink>
                 <NavLink href="https://forums.seranex.org">Forums</NavLink>
                 <NavLink href="/careers">Careers</NavLink>
                 <NavLink href="/faq">FAQ</NavLink>
@@ -69,6 +70,7 @@ export default function Header() {
     </header>
   );
 };
+
 
 
 
