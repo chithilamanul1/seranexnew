@@ -1,23 +1,26 @@
-import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { blogPosts } from '@/lib/blogData';
 
-const URL = "https://your-website-url.com"; // Replace with your actual domain
+export default function sitemap() {
+  const siteUrl = 'https://www.seranex.org'; // <-- IMPORTANT: Replace with your final domain
 
-export default async function sitemap() {
-  // Fetch all blog posts to create dynamic routes
-  const postsCollection = collection(db, 'posts');
-  const postsSnapshot = await getDocs(postsCollection);
-  const posts = postsSnapshot.docs.map(doc => ({
-    url: `${URL}/blog/${doc.id}`,
-    lastModified: new Date(), // Or use a date from your post data
+  // Get all blog post routes
+  const postRoutes = blogPosts.map((post) => ({
+    url: `${siteUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
   }));
 
-  // Add your static routes
-  const routes = [
-    { url: URL, lastModified: new Date() },
-    { url: `${URL}/blog`, lastModified: new Date() },
-    // Add other static pages here
+  // Define your static routes
+  const staticRoutes = [
+    { url: siteUrl, lastModified: new Date() },
+    { url: `${siteUrl}/about`, lastModified: new Date() },
+    { url: `${siteUrl}/services`, lastModified: new Date() },
+    { url: `${siteUrl}/portfolio`, lastModified: new Date() },
+    { url: `${siteUrl}/contact`, lastModified: new Date() },
+    { url: `${siteUrl}/blog`, lastModified: new Date() },
+    { url: `${siteUrl}/privacy-policy`, lastModified: new Date() },
+    { url: `${siteUrl}/terms-of-service`, lastModified: new Date() },
+    { url: `${siteUrl}/testimonials`, lastModified: new Date() },
   ];
 
-  return [...routes, ...posts];
+  return [...staticRoutes, ...postRoutes];
 }
