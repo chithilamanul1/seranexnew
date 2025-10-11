@@ -7,7 +7,7 @@ const Footer = () => (
         <h2 className="text-3xl md:text-4xl font-bold text-white">Have a Project in Mind?</h2>
         <p className="mt-4 text-lg text-gray-400">Let's build something great together.</p>
         <a
-          href="mailto:info@seranex.org"
+          href="mailto:contact@seranex.com"
           className="mt-8 inline-block rounded-full bg-blue-600 px-8 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-500 transition-transform transform hover:scale-105"
         >
           Get in Touch
@@ -21,16 +21,16 @@ const Footer = () => (
         <div>
           <h3 className="font-bold text-white uppercase tracking-wider text-sm">Links</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#services" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Services</a></li>
-            <li><a href="#philosophy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Philosophy</a></li>
-            <li><a href="#stack" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Technology</a></li>
+            <li><a href="/#services" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Services</a></li>
+            <li><a href="/about" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">About Us</a></li>
+            <li><a href="/contact" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Contact</a></li>
           </ul>
         </div>
         <div>
           <h3 className="font-bold text-white uppercase tracking-wider text-sm">Legal</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="/policies/privacy-policy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Privacy Policy</a></li>
-            <li><a href="/policies/terms-of-service" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Terms of Service</a></li>
+            <li><a href="/privacy-policy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Terms of Service</a></li>
           </ul>
         </div>
         <div>
