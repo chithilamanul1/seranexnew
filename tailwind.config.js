@@ -10,10 +10,15 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2563eb',
-          'light': '#3b82f6',
-          'dark': '#1d4ed8',
+          DEFAULT: '#2563eb', // A professional blue (blue-600)
+          'light': '#3b82f6', // blue-500
+          'dark': '#1d4ed8',  // blue-700
         },
+        'brand-dark': '#0D1117', // Main Background (Deep Charcoal/Black)
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-fira-code)', 'monospace'],
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.8s ease-out forwards',
@@ -31,9 +36,7 @@ module.exports = {
       },
     },
   },
-  // --- THIS IS THE FIX ---
   plugins: [
-    require('@tailwindcss/typography'), // This line activates the prose classes
+    require('@tailwindcss/typography'),
   ],
-  // --- END OF FIX ---
 }
