@@ -21,8 +21,8 @@ const firaCode = Fira_Code({
 
 export const metadata = {
   title: {
-    template: '%s | SERANEX',
-    default: 'SERANEX - Elite Digital Engineering',
+    template: '%s | Seranex',
+    default: 'SeRaNeX - Elite Digital Engineering',
   },
   description: 'A global digital engineering firm specializing in high-performance web applications, strategic branding, and custom software solutions.',
 
@@ -42,4 +42,5 @@ export default function RootLayout({ children }) {
     </ClerkProvider>
   );
 }
+
 
