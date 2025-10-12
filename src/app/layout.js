@@ -25,9 +25,7 @@ export const metadata = {
     default: 'SERANEX - Elite Digital Engineering',
   },
   description: 'A global digital engineering firm specializing in high-performance web applications, strategic branding, and custom software solutions.',
-  verification: {
-    google: 'YOUR_UNIQUE_CODE_HERE', // Make sure your Google verification code is here
-  },
+
 };
 
 export default function RootLayout({ children }) {
@@ -44,3 +42,4 @@ export default function RootLayout({ children }) {
     </ClerkProvider>
   );
 }
+
