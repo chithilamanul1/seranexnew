@@ -1,7 +1,7 @@
-import { FaLaptopCode, FaPaintBrush, FaRocket, FaHandshake, FaShieldAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaLaptopCode, FaPaintBrush, FaRocket, FaHandshake, FaShieldAlt } from 'react-icons/fa';
 import { SiNextdotjs, SiVercel, SiFirebase, SiTailwindcss } from 'react-icons/si';
 
-// Note: The <Head> component is removed as metadata is now handled globally in your layout.js file for better performance and SEO.
+// Note: The <Head> component is removed as metadata is handled in layout.js
 
 export default function HomePage() {
   return (
@@ -42,17 +42,17 @@ export default function HomePage() {
             <ServiceCard 
               icon={<FaLaptopCode />}
               title="Web Application Engineering"
-              description="We go beyond websites to build robust, high-performance web applications. Our focus is on creating fast, secure, and scalable platforms that provide a flawless user experience. Whether it's a complex dashboard, an e-commerce powerhouse, or a customer portal, our code is built to perform and scale."
+              description="We go beyond websites to build robust, high-performance web applications. Our focus is on creating fast, secure, and scalable platforms that provide a flawless user experience."
             />
             <ServiceCard 
               icon={<FaPaintBrush />}
               title="Strategic Branding & UI/UX"
-              description="A successful product is more than just code—it's an experience. We craft compelling brand identities that connect with your audience. Our UI/UX design process is centered on creating intuitive, beautiful, and user-friendly interfaces that drive engagement and conversions."
+              description="A successful product is an experience. We craft compelling brand identities and intuitive user interfaces that connect with your audience and drive engagement."
             />
             <ServiceCard 
               icon={<FaRocket />}
               title="Custom Software Solutions"
-              description="For unique business challenges, we provide bespoke software solutions. We analyze your workflow to build custom tools, internal systems, and mobile applications that automate processes, boost productivity, and provide a clear competitive advantage."
+              description="For unique business challenges, we provide bespoke software solutions. We build custom tools, internal systems, and mobile applications that automate processes and boost productivity."
             />
           </div>
         </div>
@@ -63,9 +63,6 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-base font-semibold leading-7 text-blue-400">Our Foundation</h2>
           <p className="mt-2 text-4xl md:text-5xl font-bold tracking-tight text-white">Built on Modern, Proven Technology</p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            We leverage a curated stack of modern, scalable technologies to ensure your project is built on a foundation of performance, security, and reliability.
-          </p>
           <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-6 sm:gap-x-12">
             <TechStackIcon icon={<SiNextdotjs />} name="Next.js" />
             <TechStackIcon icon={<SiVercel />} name="Vercel" />
@@ -79,20 +76,17 @@ export default function HomePage() {
       <section id="philosophy" className="py-24 sm:py-32 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">More Than a Vendor.<br/>A Partner in Growth.</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">A Partner in Growth.</h2>
             <p className="text-lg text-gray-300">
-              We believe the best digital products are born from true collaboration. We integrate with your team to understand your business inside and out. Our success is measured by your success. We are committed to building long-term relationships founded on transparency, communication, and a shared passion for building exceptional products.
+              The best digital products are born from true collaboration. We integrate with your team to understand your business inside and out. Our success is measured by your success.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-8">
-            <PhilosophyCard icon={<FaHandshake />} title="Collaborative Partnership" description="We work with you, not just for you. Regular check-ins and a transparent process ensure you're always in the loop." />
-            <PhilosophyCard icon={<FaShieldAlt />} title="Quality & Reliability" description="Our commitment to clean code, rigorous testing, and best practices means your product is built to last and perform under pressure." />
+            <PhilosophyCard icon={<FaHandshake />} title="Collaborative Partnership" description="We work with you, not just for you. A transparent process ensures you're always in the loop." />
+            <PhilosophyCard icon={<FaShieldAlt />} title="Quality & Reliability" description="Our commitment to clean code and best practices means your product is built to last and perform under pressure." />
           </div>
         </div>
       </section>
-
-      {/* Footer & CTA - ACCESSIBILITY FIXES APPLIED */}
-      <Footer />
     </div>
   );
 }
@@ -124,7 +118,3 @@ const PhilosophyCard = ({ icon, title, description }) => (
     </div>
   </div>
 );
-
-
-);
-
