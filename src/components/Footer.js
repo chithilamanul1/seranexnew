@@ -32,7 +32,7 @@ const Footer = () => (
             <li><a href="/policies/privacy-policy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Privacy Policy</a></li>
             <li><a href="/policies/terms-of-service" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Terms of Service</a></li>
             <li><a href="/policies/cookie-policy" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Cookie Policy</a></li>
-            <li><a href="/policies/discliamer" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Disclaimer</a></li>
+            <li><a href="/policies/disclaimer" className="text-gray-400 hover:text-blue-500 transition-colors text-sm">Disclaimer</a></li>
           </ul>
         </div>
         <div>
