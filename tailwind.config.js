@@ -16,10 +16,13 @@ module.exports = {
         },
         'brand-dark': '#0D1117', // Main Background (Deep Charcoal/Black)
       },
+      // --- THIS IS THE FIX ---
+      // This tells Tailwind to use the font variables we defined in layout.js
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-fira-code)', 'monospace'],
       },
+      // --- END OF FIX ---
       animation: {
         'fade-in-down': 'fade-in-down 0.8s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
@@ -40,4 +43,3 @@ module.exports = {
     require('@tailwindcss/typography'),
   ],
 }
-
