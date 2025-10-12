@@ -1,10 +1,23 @@
-import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
-import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer' // <-- Import the new Footer
+import { Inter, Fira_Code } from 'next/font/google'; // <-- Import from next/font
+import { ClerkProvider } from '@clerk/nextjs';
+import './globals.css';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'] })
+// --- THIS IS THE FIX ---
+// Configure the fonts with next/font
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fira-code',
+});
+// --- END OF FIX ---
 
 export const metadata = {
   title: {
@@ -12,18 +25,22 @@ export const metadata = {
     default: 'SERANEX - Elite Digital Engineering',
   },
   description: 'A global digital engineering firm specializing in high-performance web applications, strategic branding, and custom software solutions.',
-}
+  verification: {
+    google: 'YOUR_UNIQUE_CODE_HERE', // Make sure your Google verification code is here
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="dark">
-        <body className={`${inter.className} bg-black text-gray-100`}>
+      {/* The <Head> tag with font links is no longer needed here */}
+      <html lang="en" className={`${inter.variable} ${firaCode.variable} dark`}>
+        <body className="bg-black text-gray-100 font-sans">
           <Header />
           <main>{children}</main>
-          <Footer /> {/* <-- Add the Footer here */}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
