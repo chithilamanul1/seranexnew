@@ -9,7 +9,7 @@ const Footer = () => (
     <div className={`${styles.flexStart} mb-12 w-full flex-col md:flex-row justify-between items-start border-b border-gray-800/80 pb-12`}>
       <div className="flex flex-[1.5] flex-col justify-start mr-10 mb-8 md:mb-0">
         <div className="flex items-center gap-3 mb-4">
-          <img src={logo} alt="seranex" className="h-[40px] w-[40px] object-contain" />
+          <img src={logo} alt="seranex" className="h-[80px] w-[80px] object-contain" />
           <span className="font-poppins font-bold text-[32px] text-white tracking-wider">SERANEX</span>
         </div>
         <p className={`${styles.paragraph} max-w-[450px] text-dimWhite leading-relaxed`}>

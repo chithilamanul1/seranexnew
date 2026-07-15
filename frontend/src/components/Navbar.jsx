@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar flex w-full items-center justify-between py-6">
       <a href="/" className="flex items-center gap-3">
-        <img src={logo} alt="seranex" className="h-[36px] w-[36px] object-contain" />
+        <img src={logo} alt="seranex" className="h-[64px] w-[64px] object-contain" />
         <span className="font-poppins font-bold text-[24px] text-white tracking-wider">SERANEX</span>
       </a>
 
