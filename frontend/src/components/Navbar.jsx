@@ -45,7 +45,7 @@ const Navbar = () => {
         <ul className="flex gap-4">
           {topBarLinks.map((link, index) => (
             <li key={link.id} className="flex items-center">
-              <a href={`/${link.id}`} className="hover:text-red-500 transition-colors">{link.title}</a>
+              <a href={`/${link.id}`} className="hover:text-purple-500 transition-colors">{link.title}</a>
               {index !== topBarLinks.length - 1 && <span className="ml-4 text-gray-600">|</span>}
             </li>
           ))}
@@ -70,7 +70,7 @@ const Navbar = () => {
             {navLinks.map((nav) => (
               <li
                 key={nav.id}
-                className={`cursor-pointer font-poppins text-[13px] font-medium transition-colors hover:text-red-500 uppercase tracking-wide ${active === nav.title ? "text-red-500" : "text-white"}`}
+                className={`cursor-pointer font-poppins text-[13px] font-medium transition-colors hover:text-purple-500 uppercase tracking-wide ${active === nav.title ? "text-purple-500" : "text-white"}`}
                 onClick={() => setActive(nav.title)}
               >
                 <a href={`/${nav.id}`}>{nav.title}</a>
@@ -81,7 +81,7 @@ const Navbar = () => {
           {/* Desktop Right Section */}
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
-            <a href="/contact" className="bg-[#cc3333] hover:bg-[#b32b2b] text-white font-poppins font-bold text-[14px] py-2.5 px-6 rounded-md transition-colors">
+            <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-poppins font-bold text-[14px] py-2.5 px-6 rounded-md transition-opacity whitespace-nowrap">
               TALK TO US
             </a>
           </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
           {/* Mobile Right Section */}
           <div className="flex lg:hidden items-center gap-3">
             <ThemeToggle />
-            <a href="/contact" className="bg-[#cc3333] hover:bg-[#b32b2b] text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md transition-colors">
+            <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md transition-opacity whitespace-nowrap">
               TALK TO US
             </a>
 
@@ -100,7 +100,7 @@ const Navbar = () => {
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4" y="4" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
-                <rect x="14" y="4" width="6" height="6" rx="1" stroke="#cc3333" strokeWidth="2" />
+                <rect x="14" y="4" width="6" height="6" rx="1" stroke="#a855f7" strokeWidth="2" />
                 <rect x="4" y="14" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
                 <rect x="14" y="14" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
               </svg>
@@ -122,11 +122,11 @@ const Navbar = () => {
               <span className="font-poppins font-bold text-[18px] text-white tracking-tight">seranex</span>
             </a>
             <div className="flex items-center gap-3">
-              <a href="/contact" className="bg-[#cc3333] text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md">
+              <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md whitespace-nowrap">
                 TALK TO US
               </a>
               <button
-                className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-red-500 hover:bg-gray-800 transition-colors"
+                className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-purple-500 hover:bg-gray-800 transition-colors"
                 onClick={() => setToggle(false)}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -135,7 +135,7 @@ const Navbar = () => {
           </div>
 
           {/* Call Us Now Banner */}
-          <a href="tel:+94728382638" className="bg-[#cc3333] text-white py-4 px-6 flex justify-between items-center hover:bg-[#b32b2b] transition-colors group">
+          <a href="tel:+94728382638" className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 px-6 flex justify-between items-center hover:opacity-90 transition-opacity group">
             <span className="font-poppins font-bold text-[16px] tracking-[0.2em] uppercase">Call Us Now</span>
             <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
           </a>
@@ -147,7 +147,7 @@ const Navbar = () => {
                 <li key={nav.id}>
                   <a
                     href={`/${nav.id}`}
-                    className="font-poppins text-[15px] font-medium text-gray-300 hover:text-red-500 uppercase tracking-wide transition-colors block"
+                    className="font-poppins text-[15px] font-medium text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block"
                     onClick={() => setToggle(false)}
                   >
                     {nav.title}
@@ -155,7 +155,7 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="pt-4 border-t border-gray-800">
-                <a href="/contact" className="font-poppins text-[15px] font-medium text-gray-300 hover:text-red-500 uppercase tracking-wide transition-colors block">
+                <a href="/contact" className="font-poppins text-[15px] font-medium text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block">
                   Contact Us
                 </a>
               </li>

@@ -100,16 +100,29 @@ const Admin = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-dimWhite mb-1">Image URL</label>
+                                    <label className="block text-sm font-medium text-dimWhite mb-1">Project Image</label>
                                     <input
-                                        type="text"
+                                        type="file"
                                         name="image"
-                                        value={formData.image}
-                                        onChange={handleChange}
+                                        accept="image/*"
+                                        onChange={(e) => {
+                                            const file = e.target.files[0];
+                                            if (file) {
+                                                const reader = new FileReader();
+                                                reader.onloadend = () => {
+                                                    setFormData({ ...formData, image: reader.result });
+                                                };
+                                                reader.readAsDataURL(file);
+                                            }
+                                        }}
                                         required
-                                        className="w-full px-4 py-2 border border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
-                                        placeholder="e.g., https://..."
+                                        className="w-full px-4 py-2 border border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all text-dimWhite file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-gradient file:text-primary hover:file:opacity-90"
                                     />
+                                    {formData.image && (
+                                        <div className="mt-2">
+                                            <img src={formData.image} alt="Preview" className="h-20 w-20 object-cover rounded-lg border border-gray-700" />
+                                        </div>
+                                    )}
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-dimWhite mb-1">Project Link</label>
