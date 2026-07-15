@@ -11,12 +11,11 @@ const Testimonials = () => (
 
     <div className="relative z-[1] mb-6 flex w-full flex-col items-center justify-between sm:mb-16 md:flex-row">
       <h2 className={styles.heading2}>
-        What People are <br className="hidden sm:block" /> saying about us
+        What our partners <br className="hidden sm:block" /> are saying about us
       </h2>
       <div className="mt-6 w-full md:mt-0">
         <p className={`${styles.paragraph} max-w-[450px] text-left`}>
-          Everything you need to accept card payments and grow your business
-          anywhere on the planet.
+          Everything you need to automate your business and grow faster.
         </p>
       </div>
     </div>

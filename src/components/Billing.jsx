@@ -1,4 +1,4 @@
-import { apple, bill, google } from "../assets";
+import { bill } from "../assets";
 import styles, { layout } from "../style";
 
 const Billing = () => (
@@ -18,26 +18,12 @@ const Billing = () => (
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Easily control your <br className="hidden sm:block" /> billing &amp;
+        Easily automate your <br className="hidden sm:block" /> billing &amp;
         invoicing
       </h2>
       <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-        Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean
-        neque. Fusce ipsum orci rhoncus aliporttitor integer platea placerat.
+        Stop manually copying data from emails or documents. Our custom invoicing software automatically generates, sends, and tracks invoices for you.
       </p>
-
-      <div className="mt-6 flex flex-row flex-wrap sm:mt-10">
-        <img
-          src={apple}
-          alt="google_play"
-          className="mr-5 h-[42.05px] w-[128.86px] cursor-pointer object-contain"
-        />
-        <img
-          src={google}
-          alt="google_play"
-          className="h-[43.08px] w-[144.17px] cursor-pointer object-contain"
-        />
-      </div>
     </div>
   </section>
 );

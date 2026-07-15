@@ -1,5 +1,5 @@
 import styles from "../style";
-import { discount, robot } from "../assets";
+import { robot } from "../assets";
 import GetStarted from "./GetStarted";
 
 const Hero = () => {
@@ -11,18 +11,10 @@ const Hero = () => {
       <div
         className={`flex-1 ${styles.flexStart} flex-col px-6 sm:px-16 xl:px-0`}
       >
-        <div className="bg-discount-gradient mb-2 flex flex-row items-center rounded-[10px] px-4 py-[6px]">
-          <img src={discount} alt="discount" className="h-[32px] w-[32px]" />
-          <p className={`${styles.paragraph} ml-2`}>
-            <span className="text-white">20%</span> Discount For{" "}
-            <span className="text-white">1 Month</span> Account
-          </p>
-        </div>
-
         <div className="flex w-full flex-row items-center justify-between">
           <h1 className="flex-1 font-poppins text-[52px] font-semibold leading-[75px] text-white ss:text-[72px] ss:leading-[100.8px]">
-            The Next <br className="hidden sm:block" />{" "}
-            <span className="text-gradient">Generation</span>{" "}
+            Smart Software <br className="hidden sm:block" />{" "}
+            <span className="text-gradient">& AI Agents</span>{" "}
           </h1>
           <div className="mr-0 hidden ss:flex md:mr-4">
             <GetStarted />
@@ -30,12 +22,10 @@ const Hero = () => {
         </div>
 
         <h1 className="w-full font-poppins text-[52px] font-semibold leading-[75px] text-white ss:text-[68px] ss:leading-[100.8px]">
-          Payment Method.
+          Built for Your Business.
         </h1>
         <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-          Our team of experts uses a methodology to identify the credit cards
-          most likely to fit your needs. We examine annual percentage rates,
-          annual fees.
+          We build custom software that does the hard work for you. Trusted by top brands to save time, reduce mistakes, and deliver results fast.
         </p>
       </div>
 

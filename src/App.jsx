@@ -1,3 +1,5 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styles from "./style";
 import {
   Billing,
@@ -11,8 +13,15 @@ import {
   Testimonials,
   Hero,
 } from "./components";
+import Company from "./pages/Company";
+import Services from "./pages/Services";
+import Products from "./pages/Products";
+import CaseStudies from "./pages/CaseStudies";
+import News from "./pages/News";
+import Careers from "./pages/Careers";
+import Admin from "./pages/Admin";
 
-const App = () => (
+const Home = () => (
   <div className="w-full overflow-hidden bg-primary">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
@@ -39,6 +48,21 @@ const App = () => (
       </div>
     </div>
   </div>
+);
+
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/company" element={<Company />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/case-studies" element={<CaseStudies />} />
+      <Route path="/news" element={<News />} />
+      <Route path="/careers" element={<Careers />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
+  </Router>
 );
 
 export default App;

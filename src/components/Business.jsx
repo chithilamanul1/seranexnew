@@ -4,9 +4,8 @@ import Button from "./Button";
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div
-    className={`flex flex-row rounded-[20px] p-6 ${
-      index !== features.length - 1 ? "mb-6" : "mb-0"
-    } feature-card`}
+    className={`flex flex-row rounded-[20px] p-6 ${index !== features.length - 1 ? "mb-6" : "mb-0"
+      } feature-card`}
   >
     <div
       className={`h-[64px] w-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}
@@ -28,13 +27,11 @@ const Business = () => (
   <section id="features" className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        You do the business, <br className="hidden sm:block" /> we&apos;ll
-        handle the money.
+        Focus on your business, <br className="hidden sm:block" /> we&apos;ll
+        build the software.
       </h2>
       <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-        With the right credit card, you can improve your financial life by
-        building credit, earning rewards and saving money. But with hundreds of
-        credit cards on the market.
+        With the right software, you can automate repetitive tasks, reduce human errors, and save hours of manual work every single day.
       </p>
 
       <Button styles={`mt-10`} />

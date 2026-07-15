@@ -9,19 +9,20 @@ const Navbar = () => {
 
   return (
     <nav className="navbar flex w-full items-center justify-between py-6">
-      <img src={logo} alt="hoobank" className="h-[32px] w-[124px]" />
+      <div className="flex items-center gap-2">
+        <span className="font-poppins font-bold text-[24px] text-white tracking-wider">SERANEX</span>
+      </div>
 
       <ul className="hidden flex-1 list-none items-center justify-end sm:flex">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`cursor-pointer font-poppins text-[16px] font-normal ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            className={`cursor-pointer font-poppins text-[16px] font-normal ${active === nav.title ? "text-white" : "text-dimWhite"
+              } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
             aria-hidden="true"
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a href={`/${nav.id}`}>{nav.title}</a>
           </li>
         ))}
       </ul>
@@ -36,21 +37,19 @@ const Navbar = () => {
         />
 
         <div
-          className={`${
-            !toggle ? "hidden" : "flex"
-          } bg-black-gradient sidebar absolute right-0 top-20 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
+          className={`${!toggle ? "hidden" : "flex"
+            } bg-black-gradient sidebar absolute right-0 top-20 mx-4 my-2 min-w-[140px] rounded-xl p-6 z-50`}
         >
           <ul className="flex flex-1 list-none flex-col items-start justify-end">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`cursor-pointer font-poppins text-[16px] font-medium ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                className={`cursor-pointer font-poppins text-[16px] font-medium ${active === nav.title ? "text-white" : "text-dimWhite"
+                  } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.title)}
                 aria-hidden="true"
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a href={`/${nav.id}`}>{nav.title}</a>
               </li>
             ))}
           </ul>

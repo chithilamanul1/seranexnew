@@ -5,10 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#00040f",
-        secondary: "#00f6ff",
+        primary: "#0b001a",
+        secondary: "#b380ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
-        dimBlue: "rgba(9, 151, 124, 0.1)",
+        dimBlue: "rgba(179, 128, 255, 0.1)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
