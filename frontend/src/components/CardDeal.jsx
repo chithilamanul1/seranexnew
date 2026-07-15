@@ -6,10 +6,10 @@ const CardDeal = () => (
   <section className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Get a custom software <br className="hidden sm:block" /> solution in few easy steps.
+        Custom software <br className="hidden sm:block" /> built around your workflow.
       </h2>
       <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-        We analyze your business processes, design a custom solution, and build it for you. No complex steps, just results.
+        We analyze how your business works, find the bottlenecks, and build software that removes them. Clean code, modern tech, real results.
       </p>
 
       <Button styles={`mt-10`} />
@@ -17,7 +17,7 @@ const CardDeal = () => (
 
     <div className={layout.sectionImg}>
       <LottieAnimation
-        url="https://assets10.lottiefiles.com/packages/lf20_iorpbol0.json"
+        url="https://assets9.lottiefiles.com/packages/lf20_myejiggj.json"
         className="w-[100%] h-[100%]"
       />
     </div>

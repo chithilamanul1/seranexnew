@@ -5,7 +5,7 @@ const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <LottieAnimation
-        url="https://assets9.lottiefiles.com/packages/lf20_xl7gepfh.json"
+        url="https://assets4.lottiefiles.com/packages/lf20_w51pcehl.json"
         className="relative z-[5] w-[100%] h-[100%]"
       />
 
@@ -17,11 +17,11 @@ const Billing = () => (
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Easily automate your <br className="hidden sm:block" /> billing &amp;
-        invoicing
+        We design &amp; build <br className="hidden sm:block" /> websites that
+        convert.
       </h2>
       <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
-        Stop manually copying data from emails or documents. Our custom invoicing software automatically generates, sends, and tracks invoices for you.
+        From landing pages to full e-commerce platforms, we build fast, responsive, and SEO-optimized websites that help your business grow online.
       </p>
     </div>
   </section>
