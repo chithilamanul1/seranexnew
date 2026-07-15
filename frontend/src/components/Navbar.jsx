@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
-
-import { close, logo, menu } from "../assets";
+import { logo } from "../assets";
 import { navLinks } from "../constants";
 import ThemeToggle from "./ThemeToggle";
+
+const topBarLinks = [
+  { id: "about", title: "About Us" },
+  { id: "services", title: "Services" },
+  { id: "our-work", title: "Our Work" },
+  { id: "careers", title: "Careers" },
+  { id: "contact", title: "Contact Us" },
+];
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -22,62 +29,141 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <div className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/50 py-4 shadow-lg" : "bg-transparent py-6"}`}>
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-16 flex w-full items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="seranex" className="h-[48px] w-[48px] object-contain" />
-          <span className="font-poppins font-bold text-[24px] text-lightText dark:text-white tracking-wider">SERANEX</span>
-        </a>
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (toggle) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [toggle]);
 
-        <ul className="hidden flex-1 list-none items-center justify-end sm:flex">
-          {navLinks.map((nav, index) => (
-            <li
-              key={nav.id}
-              className={`cursor-pointer font-poppins text-[16px] font-medium transition-colors hover:text-secondary ${active === nav.title ? "text-lightText dark:text-white" : "text-lightDimText dark:text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mr-6" : "mr-10"}`}
-              onClick={() => setActive(nav.title)}
-              aria-hidden="true"
-            >
-              <a href={`/${nav.id}`}>{nav.title}</a>
+  return (
+    <>
+      {/* Desktop Top Bar */}
+      <div className="hidden lg:flex w-full bg-black text-white py-2 px-6 sm:px-16 justify-end items-center text-[12px] font-poppins z-[101] relative">
+        <ul className="flex gap-4">
+          {topBarLinks.map((link, index) => (
+            <li key={link.id} className="flex items-center">
+              <a href={`/${link.id}`} className="hover:text-red-500 transition-colors">{link.title}</a>
+              {index !== topBarLinks.length - 1 && <span className="ml-4 text-gray-600">|</span>}
             </li>
           ))}
-          <li>
-            <ThemeToggle />
-          </li>
         </ul>
+      </div>
 
-        <div className="flex flex-1 items-center justify-end sm:hidden gap-4">
-          <ThemeToggle />
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="h-[28px] w-[28px] object-contain cursor-pointer filter dark:invert-0 invert"
-            onClick={() => setToggle(!toggle)}
-            aria-hidden="true"
-          />
+      {/* Main Navbar */}
+      <div className={`fixed ${scrolled ? 'top-0' : 'top-0 lg:top-[32px]'} left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "bg-black/95 backdrop-blur-md border-b border-gray-800 py-3 shadow-lg" : "bg-black py-4"}`}>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-16 flex w-full items-center justify-between">
 
-          <div
-            className={`${!toggle ? "hidden" : "flex"
-              } bg-white dark:bg-black-gradient sidebar absolute right-0 top-20 mx-4 my-2 min-w-[140px] rounded-xl p-6 z-50 shadow-2xl border border-gray-200 dark:border-gray-800`}
-          >
-            <ul className="flex flex-1 list-none flex-col items-start justify-end">
-              {navLinks.map((nav, index) => (
-                <li
-                  key={nav.id}
-                  className={`cursor-pointer font-poppins text-[16px] font-medium hover:text-secondary transition-colors ${active === nav.title ? "text-lightText dark:text-white" : "text-lightDimText dark:text-dimWhite"
-                    } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                  onClick={() => setActive(nav.title)}
-                  aria-hidden="true"
-                >
-                  <a href={`/${nav.id}`}>{nav.title}</a>
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2">
+            <img src={logo} alt="seranex" className="h-[40px] w-[40px] object-contain" />
+            <div className="flex flex-col">
+              <span className="font-poppins font-bold text-[22px] text-white tracking-tight leading-none">seranex</span>
+              <span className="text-[10px] text-gray-400 tracking-widest mt-1">-Grow with Digital-</span>
+            </div>
+          </a>
+
+          {/* Desktop Links */}
+          <ul className="hidden lg:flex flex-1 list-none items-center justify-center gap-8">
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`cursor-pointer font-poppins text-[13px] font-medium transition-colors hover:text-red-500 uppercase tracking-wide ${active === nav.title ? "text-red-500" : "text-white"}`}
+                onClick={() => setActive(nav.title)}
+              >
+                <a href={`/${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Desktop Right Section */}
+          <div className="hidden lg:flex items-center gap-4">
+            <ThemeToggle />
+            <a href="/contact" className="bg-[#cc3333] hover:bg-[#b32b2b] text-white font-poppins font-bold text-[14px] py-2.5 px-6 rounded-md transition-colors">
+              TALK TO US
+            </a>
+          </div>
+
+          {/* Mobile Right Section */}
+          <div className="flex lg:hidden items-center gap-3">
+            <ThemeToggle />
+            <a href="/contact" className="bg-[#cc3333] hover:bg-[#b32b2b] text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md transition-colors">
+              TALK TO US
+            </a>
+
+            {/* Grid Menu Icon */}
+            <button
+              className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-gray-400 hover:text-white transition-colors"
+              onClick={() => setToggle(true)}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
+                <rect x="14" y="4" width="6" height="6" rx="1" stroke="#cc3333" strokeWidth="2" />
+                <rect x="4" y="14" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
+                <rect x="14" y="14" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Full Screen Menu */}
+      <div className={`fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${toggle ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setToggle(false)}>
+        <div
+          className={`absolute top-0 right-0 w-full sm:w-[400px] h-full bg-[#111] shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${toggle ? 'translate-x-0' : 'translate-x-full'}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-800">
+            <a href="/" className="flex items-center gap-2">
+              <img src={logo} alt="seranex" className="h-[32px] w-[32px] object-contain" />
+              <span className="font-poppins font-bold text-[18px] text-white tracking-tight">seranex</span>
+            </a>
+            <div className="flex items-center gap-3">
+              <a href="/contact" className="bg-[#cc3333] text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md">
+                TALK TO US
+              </a>
+              <button
+                className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-red-500 hover:bg-gray-800 transition-colors"
+                onClick={() => setToggle(false)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Call Us Now Banner */}
+          <a href="tel:+94728382638" className="bg-[#cc3333] text-white py-4 px-6 flex justify-between items-center hover:bg-[#b32b2b] transition-colors group">
+            <span className="font-poppins font-bold text-[16px] tracking-[0.2em] uppercase">Call Us Now</span>
+            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+
+          {/* Mobile Menu Links */}
+          <div className="flex-1 overflow-y-auto py-6 px-8">
+            <ul className="flex flex-col gap-6">
+              {navLinks.map((nav) => (
+                <li key={nav.id}>
+                  <a
+                    href={`/${nav.id}`}
+                    className="font-poppins text-[15px] font-medium text-gray-300 hover:text-red-500 uppercase tracking-wide transition-colors block"
+                    onClick={() => setToggle(false)}
+                  >
+                    {nav.title}
+                  </a>
                 </li>
               ))}
+              <li className="pt-4 border-t border-gray-800">
+                <a href="/contact" className="font-poppins text-[15px] font-medium text-gray-300 hover:text-red-500 uppercase tracking-wide transition-colors block">
+                  Contact Us
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
