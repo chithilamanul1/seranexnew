@@ -1,5 +1,5 @@
 import styles from "../style";
-import { logo } from "../assets";
+import { logo, logoBlack } from "../assets";
 import { socialMedia } from "../constants";
 import year from "./date";
 
@@ -9,8 +9,8 @@ const Footer = () => (
     <div className={`${styles.flexStart} mb-12 w-full flex-col md:flex-row justify-between items-start border-b border-gray-200 dark:border-gray-800/80 pb-12`}>
       <div className="flex flex-[1.5] flex-col justify-start mr-10 mb-8 md:mb-0">
         <div className="flex items-center gap-3 mb-4">
-          <img src={logo} alt="seranex" className="h-[80px] w-[80px] object-contain" />
-          <span className="font-poppins font-bold text-[32px] text-lightText dark:text-white tracking-wider">SERANEX</span>
+          <img src={logoBlack} alt="seranex" className="h-[60px] md:h-[80px] w-auto object-contain dark:hidden" />
+          <img src={logo} alt="seranex" className="h-[60px] md:h-[80px] w-auto object-contain hidden dark:block" />
         </div>
         <p className={`${styles.paragraph} max-w-[450px] text-lightDimText dark:text-dimWhite leading-relaxed`}>
           Seranex Lanka is a custom software company in Sri Lanka building intelligent software and AI Digital Staff that remove operational bottlenecks, reduce errors, and help teams work with more clarity.

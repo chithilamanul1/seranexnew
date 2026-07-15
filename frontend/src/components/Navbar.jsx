@@ -56,12 +56,8 @@ const Navbar = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-16 flex w-full items-center justify-between">
 
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <img src={logo} alt="seranex" className="h-[40px] w-[40px] object-contain" />
-            <div className="flex flex-col">
-              <span className="font-poppins font-bold text-[22px] text-white tracking-tight leading-none">seranex</span>
-              <span className="text-[10px] text-gray-400 tracking-widest mt-1">-Grow with Digital-</span>
-            </div>
+          <a href="/" className="flex items-center">
+            <img src={logo} alt="seranex" className="h-[50px] md:h-[60px] w-auto object-contain" />
           </a>
 
           {/* Desktop Links */}
@@ -103,9 +99,8 @@ const Navbar = () => {
         >
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-800">
-            <a href="/" className="flex items-center gap-2">
-              <img src={logo} alt="seranex" className="h-[32px] w-[32px] object-contain" />
-              <span className="font-poppins font-bold text-[18px] text-white tracking-tight">seranex</span>
+            <a href="/" className="flex items-center">
+              <img src={logo} alt="seranex" className="h-[40px] w-auto object-contain" />
             </a>
             <div className="flex items-center gap-3">
               <button
