@@ -6,33 +6,33 @@ import year from "./date";
 const Footer = () => (
   <section className={`${styles.flexCenter} ${styles.paddingY} flex-col relative`}>
     {/* Top Section */}
-    <div className={`${styles.flexStart} mb-12 w-full flex-col md:flex-row justify-between items-start border-b border-gray-800/80 pb-12`}>
+    <div className={`${styles.flexStart} mb-12 w-full flex-col md:flex-row justify-between items-start border-b border-gray-200 dark:border-gray-800/80 pb-12`}>
       <div className="flex flex-[1.5] flex-col justify-start mr-10 mb-8 md:mb-0">
         <div className="flex items-center gap-3 mb-4">
           <img src={logo} alt="seranex" className="h-[80px] w-[80px] object-contain" />
-          <span className="font-poppins font-bold text-[32px] text-white tracking-wider">SERANEX</span>
+          <span className="font-poppins font-bold text-[32px] text-lightText dark:text-white tracking-wider">SERANEX</span>
         </div>
-        <p className={`${styles.paragraph} max-w-[450px] text-dimWhite leading-relaxed`}>
+        <p className={`${styles.paragraph} max-w-[450px] text-lightDimText dark:text-dimWhite leading-relaxed`}>
           Seranex Lanka is a custom software company in Sri Lanka building intelligent software and AI Digital Staff that remove operational bottlenecks, reduce errors, and help teams work with more clarity.
         </p>
       </div>
 
       {/* Badges / Ratings */}
       <div className="flex flex-row gap-4 flex-wrap items-center justify-start md:justify-end flex-1">
-        <a href="https://share.google/b6jJYh9t08b9zwoJZ" target="_blank" rel="noreferrer" className="bg-black-gradient border border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[120px] hover:border-secondary transition-colors">
+        <a href="https://share.google/b6jJYh9t08b9zwoJZ" target="_blank" rel="noreferrer" className="bg-gray-100 dark:bg-black-gradient border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[120px] hover:border-secondary transition-colors">
           <div className="flex gap-1 mb-1">
             {[1, 2, 3, 4, 5].map((star) => (
               <svg key={star} className="w-3 h-3 text-yellow-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
             ))}
           </div>
-          <span className="text-[10px] text-dimWhite uppercase tracking-wider">5.0 on Google</span>
+          <span className="text-[10px] text-lightDimText dark:text-dimWhite uppercase tracking-wider">5.0 on Google</span>
         </a>
-        <div className="bg-black-gradient border border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[100px]">
-          <span className="text-[10px] text-dimWhite uppercase tracking-wider">Top Rated</span>
+        <div className="bg-gray-100 dark:bg-black-gradient border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[100px]">
+          <span className="text-[10px] text-lightDimText dark:text-dimWhite uppercase tracking-wider">Top Rated</span>
           <span className="text-sm font-bold text-secondary">Sortlist</span>
         </div>
-        <div className="bg-black-gradient border border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[100px]">
-          <span className="text-[10px] text-dimWhite uppercase tracking-wider">Verified</span>
+        <div className="bg-gray-100 dark:bg-black-gradient border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-xl flex flex-col items-center min-w-[100px]">
+          <span className="text-[10px] text-lightDimText dark:text-dimWhite uppercase tracking-wider">Verified</span>
           <span className="text-sm font-bold text-secondary">Clutch</span>
         </div>
       </div>
@@ -41,55 +41,55 @@ const Footer = () => (
     {/* Middle Section: Columns */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-12 text-left">
       <div>
-        <h4 className="font-poppins font-semibold text-[18px] text-white mb-4">Services</h4>
-        <p className="text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
+        <h4 className="font-poppins font-semibold text-[18px] text-lightText dark:text-white mb-4">Services</h4>
+        <p className="text-lightDimText dark:text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
           Explore our custom software development and AI Digital Staff services built to remove inefficiencies and improve business operations.
         </p>
         <a href="/services" className="text-secondary hover:underline text-sm font-medium mt-3 inline-block">View Services &rarr;</a>
       </div>
       <div>
-        <h4 className="font-poppins font-semibold text-[18px] text-white mb-4">Case Studies</h4>
-        <p className="text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
+        <h4 className="font-poppins font-semibold text-[18px] text-lightText dark:text-white mb-4">Our Work</h4>
+        <p className="text-lightDimText dark:text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
           See how businesses have used Seranex, a leading Sri Lankan Software company to solve operational problems with custom-built software and intelligent systems.
         </p>
-        <a href="/case-studies" className="text-secondary hover:underline text-sm font-medium mt-3 inline-block">View Case Studies &rarr;</a>
+        <a href="/our-work" className="text-secondary hover:underline text-sm font-medium mt-3 inline-block">View Our Work &rarr;</a>
       </div>
       <div>
-        <h4 className="font-poppins font-semibold text-[18px] text-white mb-4">Products</h4>
-        <p className="text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
-          Discover software products designed to solve business problems efficiently and support operational growth.
+        <h4 className="font-poppins font-semibold text-[18px] text-lightText dark:text-white mb-4">Company</h4>
+        <p className="text-lightDimText dark:text-dimWhite text-[14px] leading-relaxed max-w-[280px]">
+          Learn more about our mission, vision, and the team behind Seranex Lanka.
         </p>
-        <a href="/products" className="text-secondary hover:underline text-sm font-medium mt-3 inline-block">View Products &rarr;</a>
+        <a href="/company" className="text-secondary hover:underline text-sm font-medium mt-3 inline-block">View Company &rarr;</a>
       </div>
     </div>
 
     {/* Contact Section */}
-    <div className="w-full text-left border-t border-gray-800/80 pt-12 mb-12">
-      <h4 className="font-poppins font-semibold text-[20px] text-white mb-6">Contact</h4>
+    <div className="w-full text-left border-t border-gray-200 dark:border-gray-800/80 pt-12 mb-12">
+      <h4 className="font-poppins font-semibold text-[20px] text-lightText dark:text-white mb-6">Contact</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         <div>
-          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">Email</span>
-          <a href="mailto:info@seranex.lk" className="text-white hover:text-secondary font-medium transition-colors">info@seranex.lk</a>
+          <span className="text-[11px] uppercase tracking-wider text-lightDimText dark:text-dimWhite/60 block mb-1">Email</span>
+          <a href="mailto:info@seranex.lk" className="text-lightText dark:text-white hover:text-secondary font-medium transition-colors">info@seranex.lk</a>
         </div>
         <div>
-          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">WhatsApp / Phone</span>
-          <a href="https://wa.me/94728382638" target="_blank" rel="noreferrer" className="text-white hover:text-secondary font-medium transition-colors">+94 72 838 2638</a>
+          <span className="text-[11px] uppercase tracking-wider text-lightDimText dark:text-dimWhite/60 block mb-1">WhatsApp / Phone</span>
+          <a href="https://wa.me/94728382638" target="_blank" rel="noreferrer" className="text-lightText dark:text-white hover:text-secondary font-medium transition-colors">+94 72 838 2638</a>
         </div>
         <div>
-          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">Location</span>
-          <span className="text-white font-medium">No. 20 A, Amuna Rd, Seeduwa</span>
+          <span className="text-[11px] uppercase tracking-wider text-lightDimText dark:text-dimWhite/60 block mb-1">Location</span>
+          <span className="text-lightText dark:text-white font-medium">No. 20 A, Amuna Rd, Seeduwa</span>
         </div>
       </div>
     </div>
 
     {/* Bottom Section */}
-    <div className="flex w-full flex-col items-center justify-between border-t border-gray-800/80 pt-8 md:flex-row gap-4">
-      <div className="flex flex-row gap-6 text-sm text-dimWhite">
+    <div className="flex w-full flex-col items-center justify-between border-t border-gray-200 dark:border-gray-800/80 pt-8 md:flex-row gap-4">
+      <div className="flex flex-row gap-6 text-sm text-lightDimText dark:text-dimWhite">
         <a href="/privacy" className="hover:text-secondary transition-colors">Privacy Policy</a>
         <span>|</span>
         <a href="/terms" className="hover:text-secondary transition-colors">Terms & Conditions</a>
       </div>
-      <p className="text-center font-poppins text-[14px] text-dimWhite md:order-none order-last">
+      <p className="text-center font-poppins text-[14px] text-lightDimText dark:text-dimWhite md:order-none order-last">
         Copyright Ⓒ {year} Seranex Lanka Private Limited. All Rights Reserved.
       </p>
 
@@ -99,7 +99,7 @@ const Footer = () => (
             key={social.id}
             src={social.icon}
             alt={social.id}
-            className="h-[21px] w-[21px] cursor-pointer object-contain hover:opacity-80 transition-opacity"
+            className="h-[21px] w-[21px] cursor-pointer object-contain hover:opacity-80 transition-opacity filter dark:invert-0 invert"
             onClick={() => window.open(social.link)}
             aria-hidden="true"
           />

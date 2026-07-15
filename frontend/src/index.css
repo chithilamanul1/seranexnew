@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-lightBg text-lightText transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-primary text-white;
+  }
+}
+
 :root {
   --black-gradient: linear-gradient(144.39deg,
       #ffffff -278.56%,

@@ -8,6 +8,13 @@ import Stats from "./Stats";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
+import LottieAnimation from "./LottieAnimation";
+import ThemeToggle from "./ThemeToggle";
+import NewStats from "./NewStats";
+import DigitalMarketing from "./DigitalMarketing";
+import WhatWeOffer from "./WhatWeOffer";
+import RecentProjects from "./RecentProjects";
+import OurProcess from "./OurProcess";
 
 export {
   Navbar,
@@ -20,4 +27,11 @@ export {
   Footer,
   Testimonials,
   Hero,
+  LottieAnimation,
+  ThemeToggle,
+  NewStats,
+  DigitalMarketing,
+  WhatWeOffer,
+  RecentProjects,
+  OurProcess,
 };

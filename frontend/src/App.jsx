@@ -12,6 +12,11 @@ import {
   Stats,
   Testimonials,
   Hero,
+  NewStats,
+  DigitalMarketing,
+  WhatWeOffer,
+  RecentProjects,
+  OurProcess,
 } from "./components";
 import Company from "./pages/Company";
 import Services from "./pages/Services";
@@ -21,26 +26,26 @@ import Careers from "./pages/Careers";
 import Admin from "./pages/Admin";
 
 const Home = () => (
-  <div className="w-full overflow-hidden bg-primary">
+  <div className="w-full overflow-hidden bg-lightBg dark:bg-primary transition-colors duration-300">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar />
       </div>
     </div>
 
-    <div className={`bg-primary ${styles.flexStart}`}>
+    <div className={`bg-lightBg dark:bg-primary transition-colors duration-300 ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
         <Hero />
       </div>
     </div>
 
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`bg-lightBg dark:bg-primary transition-colors duration-300 ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        <Stats />
-        <Business />
-        <Billing />
-        <CardDeal />
-        <Testimonials />
+        <NewStats />
+        <DigitalMarketing />
+        <WhatWeOffer />
+        <RecentProjects />
+        <OurProcess />
         <Clients />
         <CTA />
         <Footer />

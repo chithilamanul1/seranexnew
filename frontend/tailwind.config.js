@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,html}"],
+  darkMode: "class",
   mode: "jit",
   theme: {
     extend: {
@@ -9,6 +10,10 @@ export default {
         secondary: "#b380ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(179, 128, 255, 0.1)",
+        lightPrimary: "#ffffff",
+        lightText: "#111827",
+        lightDimText: "#4b5563",
+        lightBg: "#f9fafb",
       },
       fontFamily: {
         poppins: ["Outfit", "sans-serif"],

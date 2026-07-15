@@ -12,7 +12,7 @@ const Hero = () => {
         className={`flex-1 ${styles.flexStart} flex-col px-6 sm:px-16 xl:px-0`}
       >
         <div className="flex w-full flex-row items-center justify-between">
-          <h1 className="flex-1 font-poppins text-[52px] font-semibold leading-[75px] text-white ss:text-[72px] ss:leading-[100.8px]">
+          <h1 className="flex-1 font-poppins text-[52px] font-semibold leading-[75px] text-lightText dark:text-white ss:text-[72px] ss:leading-[100.8px]">
             Smart Software <br className="hidden sm:block" />{" "}
             <span className="text-gradient">&amp; AI Agents</span>{" "}
           </h1>
@@ -21,10 +21,10 @@ const Hero = () => {
           </div>
         </div>
 
-        <h1 className="w-full font-poppins text-[52px] font-semibold leading-[75px] text-white ss:text-[68px] ss:leading-[100.8px]">
+        <h1 className="w-full font-poppins text-[52px] font-semibold leading-[75px] text-lightText dark:text-white ss:text-[68px] ss:leading-[100.8px]">
           Built for Your Business.
         </h1>
-        <p className={`${styles.paragraph} mt-5 max-w-[470px]`}>
+        <p className={`${styles.paragraph} mt-5 max-w-[470px] text-lightDimText dark:text-dimWhite`}>
           We build custom software that does the hard work for you. Trusted by top brands to save time, reduce mistakes, and deliver results fast.
         </p>
       </div>
