@@ -1,6 +1,6 @@
-import { card } from "../assets";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import LottieAnimation from "./LottieAnimation";
 
 const CardDeal = () => (
   <section className={layout.section}>
@@ -16,7 +16,10 @@ const CardDeal = () => (
     </div>
 
     <div className={layout.sectionImg}>
-      <img src={card} alt="billing" className="h-[100%] w-[100%]" />
+      <LottieAnimation
+        url="https://assets10.lottiefiles.com/packages/lf20_iorpbol0.json"
+        className="w-[100%] h-[100%]"
+      />
     </div>
   </section>
 );

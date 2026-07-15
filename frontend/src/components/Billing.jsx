@@ -1,13 +1,12 @@
-import { bill } from "../assets";
 import styles, { layout } from "../style";
+import LottieAnimation from "./LottieAnimation";
 
 const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img
-        src={bill}
-        alt="billing"
-        className="relative z-[5] h-[100%] w-[100%]"
+      <LottieAnimation
+        url="https://assets9.lottiefiles.com/packages/lf20_xl7gepfh.json"
+        className="relative z-[5] w-[100%] h-[100%]"
       />
 
       {/* gradient start */}

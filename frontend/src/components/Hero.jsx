@@ -1,6 +1,6 @@
 import styles from "../style";
-import { robot } from "../assets";
 import GetStarted from "./GetStarted";
+import LottieAnimation from "./LottieAnimation";
 
 const Hero = () => {
   return (
@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="flex w-full flex-row items-center justify-between">
           <h1 className="flex-1 font-poppins text-[52px] font-semibold leading-[75px] text-white ss:text-[72px] ss:leading-[100.8px]">
             Smart Software <br className="hidden sm:block" />{" "}
-            <span className="text-gradient">& AI Agents</span>{" "}
+            <span className="text-gradient">&amp; AI Agents</span>{" "}
           </h1>
           <div className="mr-0 hidden ss:flex md:mr-4">
             <GetStarted />
@@ -32,10 +32,9 @@ const Hero = () => {
       <div
         className={`flex flex-1 ${styles.flexCenter} relative my-10 md:my-0`}
       >
-        <img
-          src={robot}
-          alt="billing"
-          className="relative z-[5] h-[100%] w-[100%]"
+        <LottieAnimation
+          url="https://assets2.lottiefiles.com/packages/lf20_kkflmtur.json"
+          className="relative z-[5] w-[100%] h-[100%]"
         />
 
         {/* gradient start */}
