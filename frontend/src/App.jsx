@@ -15,7 +15,6 @@ import {
 } from "./components";
 import Company from "./pages/Company";
 import Services from "./pages/Services";
-import Products from "./pages/Products";
 import CaseStudies from "./pages/CaseStudies";
 import News from "./pages/News";
 import Careers from "./pages/Careers";
@@ -56,8 +55,7 @@ const App = () => (
       <Route path="/" element={<Home />} />
       <Route path="/company" element={<Company />} />
       <Route path="/services" element={<Services />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/case-studies" element={<CaseStudies />} />
+      <Route path="/our-work" element={<CaseStudies />} />
       <Route path="/news" element={<News />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/admin" element={<Admin />} />

@@ -68,12 +68,8 @@ const Footer = () => (
           <a href="mailto:info@seranex.lk" className="text-white hover:text-secondary font-medium transition-colors">info@seranex.lk</a>
         </div>
         <div>
-          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">Phone</span>
-          <a href="tel:+94117979970" className="text-white hover:text-secondary font-medium transition-colors">+94 11 797 9970</a>
-        </div>
-        <div>
-          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">WhatsApp</span>
-          <a href="https://wa.me/97228382638" target="_blank" rel="noreferrer" className="text-white hover:text-secondary font-medium transition-colors">+972 283 82638</a>
+          <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">WhatsApp / Phone</span>
+          <a href="https://wa.me/94728382638" target="_blank" rel="noreferrer" className="text-white hover:text-secondary font-medium transition-colors">+94 72 838 2638</a>
         </div>
         <div>
           <span className="text-[11px] uppercase tracking-wider text-dimWhite/60 block mb-1">Location</span>
@@ -107,9 +103,8 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Floating WhatsApp Button */}
     <a
-      href="https://wa.me/97228382638"
+      href="https://wa.me/94728382638"
       target="_blank"
       rel="noreferrer"
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"

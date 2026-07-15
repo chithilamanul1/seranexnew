@@ -26,13 +26,10 @@ const CaseStudies = () => {
 
             <div className={`bg-primary ${styles.paddingX} ${styles.flexStart} flex-grow`}>
                 <div className={`${styles.boxWidth} py-20`}>
-                    <div className="flex justify-between items-center mb-10">
+                    <div className="mb-10">
                         <h1 className="font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px]">
-                            Case Studies
+                            Our Work
                         </h1>
-                        <a href="/admin" className="text-secondary hover:underline font-semibold">
-                            Admin Panel
-                        </a>
                     </div>
                     <p className={`${styles.paragraph} max-w-[800px] mb-10`}>
                         See how we help businesses around the world save time and grow faster with smart software.
@@ -60,8 +57,7 @@ const CaseStudies = () => {
                         ))}
                         {portfolioItems.length === 0 && (
                             <div className="col-span-2 text-center py-20 bg-black-gradient rounded-3xl border border-gray-800">
-                                <p className="text-dimWhite text-lg">No case studies available yet.</p>
-                                <a href="/admin" className="text-secondary font-medium mt-2 inline-block hover:underline">Add one in the Admin pane</a>
+                                <p className="text-dimWhite text-lg">No projects available yet. Check back soon!</p>
                             </div>
                         )}
                     </div>

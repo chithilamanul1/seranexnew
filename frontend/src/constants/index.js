@@ -11,6 +11,16 @@ import {
   star,
 } from "../assets";
 
+import sriganesh from "../assets/clients/sriganesh.png";
+import gammalu from "../assets/clients/gammalu.png";
+import shopbag from "../assets/clients/shopbag.png";
+import kapeetours from "../assets/clients/kapeetours.png";
+import airporttaxis from "../assets/clients/airporttaxis.png";
+import roadhouse from "../assets/clients/roadhouse.png";
+import diniducaterers from "../assets/clients/diniducaterers.png";
+import dinidugardens from "../assets/clients/dinidugardens.png";
+import abcloud from "../assets/clients/abcloud.png";
+
 export const navLinks = [
   {
     id: "",
@@ -25,12 +35,8 @@ export const navLinks = [
     title: "Services",
   },
   {
-    id: "products",
-    title: "Products",
-  },
-  {
-    id: "case-studies",
-    title: "Case Studies",
+    id: "our-work",
+    title: "Our Work",
   },
   {
     id: "news",
@@ -102,7 +108,7 @@ export const stats = [
   {
     id: "stats-2",
     title: "Trusted Partners",
-    value: "4+",
+    value: "9+",
   },
   {
     id: "stats-3",
@@ -124,12 +130,8 @@ export const footerLinks = [
         link: "/services",
       },
       {
-        name: "Products",
-        link: "/products",
-      },
-      {
-        name: "Case Studies",
-        link: "/case-studies",
+        name: "Our Work",
+        link: "/our-work",
       },
     ],
   },
@@ -172,20 +174,13 @@ export const socialMedia = [
 ];
 
 export const clients = [
-  {
-    id: "client-1",
-    name: "Kapee Tours",
-  },
-  {
-    id: "client-2",
-    name: "Airport Taxis",
-  },
-  {
-    id: "client-3",
-    name: "Dinidu Gardens",
-  },
-  {
-    id: "client-4",
-    name: "Sri Ganesh Exports",
-  },
+  { id: "client-1", name: "Sri Ganesh Exports", logo: sriganesh },
+  { id: "client-2", name: "Gammalu Ceylon Foods", logo: gammalu },
+  { id: "client-3", name: "Kapee Tours", logo: kapeetours },
+  { id: "client-4", name: "Airport Taxis", logo: airporttaxis },
+  { id: "client-5", name: "RoadHouse Cafe", logo: roadhouse },
+  { id: "client-6", name: "Dinindu Caterers", logo: diniducaterers },
+  { id: "client-7", name: "Dinindu Gardens", logo: dinidugardens },
+  { id: "client-8", name: "AB Cloud", logo: abcloud },
+  { id: "client-9", name: "ShopBag", logo: shopbag },
 ];
