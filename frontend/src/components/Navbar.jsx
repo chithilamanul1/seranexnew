@@ -52,12 +52,12 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <div className={`fixed ${scrolled ? 'top-0' : 'top-0 lg:top-[32px]'} left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "bg-black/95 backdrop-blur-md border-b border-gray-800 py-3 shadow-lg" : "bg-black py-4"}`}>
+      <div className={`fixed ${scrolled ? 'top-0' : 'top-0 lg:top-[32px]'} left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "bg-black/95 backdrop-blur-md border-b border-gray-800 py-3 shadow-lg" : "bg-black py-3"}`}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-16 flex w-full items-center justify-between">
 
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src={logo} alt="seranex" className="w-[140px] md:w-[180px] h-auto object-contain" />
+            <img src={logo} alt="seranex" className="h-[40px] md:h-[50px] w-auto object-contain scale-[1.5] md:scale-[1.8] origin-left ml-2 md:ml-6" />
           </a>
 
           {/* Desktop Links */}
@@ -100,7 +100,7 @@ const Navbar = () => {
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-800">
             <a href="/" className="flex items-center">
-              <img src={logo} alt="seranex" className="w-[120px] h-auto object-contain" />
+              <img src={logo} alt="seranex" className="h-[40px] w-auto object-contain scale-[1.5] origin-left ml-2" />
             </a>
             <div className="flex items-center gap-3">
               <button
