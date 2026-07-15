@@ -3,6 +3,10 @@ import styles from "../style";
 import { Navbar, Footer } from "../components";
 
 const Admin = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loginData, setLoginData] = useState({ username: '', password: '' });
+    const [loginError, setLoginError] = useState('');
+
     const [portfolioItems, setPortfolioItems] = useState([]);
     const [formData, setFormData] = useState({
         title: '',
@@ -13,8 +17,21 @@ const Admin = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetchPortfolio();
-    }, []);
+        if (isAuthenticated) {
+            fetchPortfolio();
+        }
+    }, [isAuthenticated]);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        // Simple hardcoded credentials
+        if (loginData.username === 'admin' && loginData.password === 'seranex123') {
+            setIsAuthenticated(true);
+            setLoginError('');
+        } else {
+            setLoginError('Invalid username or password');
+        }
+    };
 
     const fetchPortfolio = async () => {
         try {
@@ -56,6 +73,59 @@ const Admin = () => {
             setLoading(false);
         }
     };
+
+    if (!isAuthenticated) {
+        return (
+            <div className="w-full overflow-hidden bg-primary text-white min-h-screen flex flex-col justify-between">
+                <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+                    <div className={`${styles.boxWidth}`}>
+                        <Navbar />
+                    </div>
+                </div>
+
+                <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter} flex-grow`}>
+                    <div className="bg-black-gradient p-8 rounded-2xl border border-gray-800 w-full max-w-md">
+                        <h2 className="text-2xl font-bold mb-6 text-center text-white">Admin Login</h2>
+                        <form onSubmit={handleLogin} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-dimWhite mb-1">Username</label>
+                                <input
+                                    type="text"
+                                    value={loginData.username}
+                                    onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
+                                    required
+                                    className="w-full px-4 py-2 border border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all bg-transparent text-white"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-dimWhite mb-1">Password</label>
+                                <input
+                                    type="password"
+                                    value={loginData.password}
+                                    onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                                    required
+                                    className="w-full px-4 py-2 border border-gray-700 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all bg-transparent text-white"
+                                />
+                            </div>
+                            {loginError && <p className="text-red-500 text-sm text-center">{loginError}</p>}
+                            <button
+                                type="submit"
+                                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-2.5 rounded-lg hover:opacity-90 transition-opacity mt-4"
+                            >
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+                    <div className={`${styles.boxWidth}`}>
+                        <Footer />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="w-full overflow-hidden bg-primary text-white min-h-screen flex flex-col justify-between">
