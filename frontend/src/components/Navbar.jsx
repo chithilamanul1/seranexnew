@@ -57,7 +57,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <img src={logo} alt="seranex" className="h-[50px] md:h-[60px] w-auto object-contain" />
+            <img src={logo} alt="seranex" className="w-[140px] md:w-[180px] h-auto object-contain" />
           </a>
 
           {/* Desktop Links */}
@@ -100,7 +100,7 @@ const Navbar = () => {
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-800">
             <a href="/" className="flex items-center">
-              <img src={logo} alt="seranex" className="h-[40px] w-auto object-contain" />
+              <img src={logo} alt="seranex" className="w-[120px] h-auto object-contain" />
             </a>
             <div className="flex items-center gap-3">
               <button

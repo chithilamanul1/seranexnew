@@ -24,7 +24,7 @@ const NewStats = () => (
                     5+
                 </h4>
                 <p className="font-poppins font-semibold xs:text-[24px] text-[16px] xs:leading-[30px] leading-[24px] text-lightText dark:text-white uppercase mt-2">
-                    AWARDS
+                    PARTNERS
                 </p>
             </div>
             <div className="flex flex-col justify-center items-center">
