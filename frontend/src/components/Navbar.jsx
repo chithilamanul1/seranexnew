@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { logo } from "../assets";
 import { navLinks } from "../constants";
-import ThemeToggle from "./ThemeToggle";
 
 const topBarLinks = [
   { id: "about", title: "About Us" },
@@ -41,8 +40,8 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Top Bar */}
-      <div className="hidden lg:flex w-full bg-black text-white py-2 px-6 sm:px-16 justify-end items-center text-[12px] font-poppins z-[101] relative">
-        <ul className="flex gap-4">
+      <div className={`hidden lg:flex fixed top-0 left-0 w-full bg-black text-white py-2 px-6 sm:px-16 justify-end items-center text-[12px] font-poppins z-[101] transition-transform duration-300 ${scrolled ? '-translate-y-full' : 'translate-y-0'}`}>
+        <ul className="flex gap-4 max-w-[1440px] mx-auto w-full justify-end">
           {topBarLinks.map((link, index) => (
             <li key={link.id} className="flex items-center">
               <a href={`/${link.id}`} className="hover:text-purple-500 transition-colors">{link.title}</a>
@@ -78,21 +77,8 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Desktop Right Section */}
-          <div className="hidden lg:flex items-center gap-4">
-            <ThemeToggle />
-            <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-poppins font-bold text-[14px] py-2.5 px-6 rounded-md transition-opacity whitespace-nowrap">
-              TALK TO US
-            </a>
-          </div>
-
           {/* Mobile Right Section */}
           <div className="flex lg:hidden items-center gap-3">
-            <ThemeToggle />
-            <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md transition-opacity whitespace-nowrap">
-              TALK TO US
-            </a>
-
             {/* Grid Menu Icon */}
             <button
               className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-gray-400 hover:text-white transition-colors"
@@ -122,9 +108,6 @@ const Navbar = () => {
               <span className="font-poppins font-bold text-[18px] text-white tracking-tight">seranex</span>
             </a>
             <div className="flex items-center gap-3">
-              <a href="/contact" className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-poppins font-bold text-[12px] py-2 px-4 rounded-md whitespace-nowrap">
-                TALK TO US
-              </a>
               <button
                 className="bg-[#1a1a1a] p-2 rounded-md border border-gray-800 text-purple-500 hover:bg-gray-800 transition-colors"
                 onClick={() => setToggle(false)}

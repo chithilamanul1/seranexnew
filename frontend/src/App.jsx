@@ -24,6 +24,7 @@ import CaseStudies from "./pages/CaseStudies";
 import News from "./pages/News";
 import Careers from "./pages/Careers";
 import Admin from "./pages/Admin";
+import Contact from "./pages/Contact";
 
 const Home = () => (
   <div className="w-full overflow-hidden bg-lightBg dark:bg-primary transition-colors duration-300">
@@ -46,7 +47,18 @@ const Home = () => (
         <WhatWeOffer />
         <RecentProjects />
         <OurProcess />
+      </div>
+    </div>
+
+    {/* Clients section with permanent black background */}
+    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter} transition-colors duration-300 py-12`}>
+      <div className={`${styles.boxWidth}`}>
         <Clients />
+      </div>
+    </div>
+
+    <div className={`bg-lightBg dark:bg-primary transition-colors duration-300 ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
         <CTA />
         <Footer />
       </div>
@@ -64,6 +76,7 @@ const App = () => (
       <Route path="/news" element={<News />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   </Router>
 );
