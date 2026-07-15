@@ -9,9 +9,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar flex w-full items-center justify-between py-6">
-      <div className="flex items-center gap-2">
+      <a href="/" className="flex items-center gap-3">
+        <img src={logo} alt="seranex" className="h-[36px] w-[36px] object-contain" />
         <span className="font-poppins font-bold text-[24px] text-white tracking-wider">SERANEX</span>
-      </div>
+      </a>
 
       <ul className="hidden flex-1 list-none items-center justify-end sm:flex">
         {navLinks.map((nav, index) => (
