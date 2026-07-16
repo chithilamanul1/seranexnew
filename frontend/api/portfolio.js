@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const uri = "mongodb://mongo:kthwhon83ljdxlpt@seranex-seranex-v6xmze:27017/?authSource=admin&directConnection=true";
+const uri = "mongodb://mongo:kthwhon83ljdxlpt@host.airporttaxis.lk:27017/?authSource=admin&directConnection=true";
 let client;
 let clientPromise;
 
