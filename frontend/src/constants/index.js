@@ -204,7 +204,7 @@ export const manualProjects = [
     id: "project-3",
     title: "Airport Taxis",
     category: "Transportation",
-    image: "/airport taxis.png",
+    image: "/airport%20taxis.png",
     link: "https://airporttaxis.lk",
   },
   {
@@ -232,7 +232,7 @@ export const manualProjects = [
     id: "project-7",
     title: "Sri Ganesh Exports",
     category: "Export Business",
-    image: "/gammalu.png",
+    image: "/sriganesh.png",
     link: "https://sriganeshexports.com",
   },
 ];
