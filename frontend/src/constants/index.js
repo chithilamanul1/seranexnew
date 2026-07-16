@@ -184,3 +184,55 @@ export const clients = [
   { id: "client-8", name: "AB Cloud", logo: abcloud },
   { id: "client-9", name: "ShopBag", logo: shopbag },
 ];
+
+export const manualProjects = [
+  {
+    id: "project-1",
+    title: "Kapee Tours",
+    category: "Travel & Tourism",
+    image: "/kapeetours.lk.png",
+    link: "https://kapeetours.lk",
+  },
+  {
+    id: "project-2",
+    title: "Dinidu Gardens",
+    category: "Landscaping",
+    image: "/dinidugardens.png",
+    link: "https://dinidugardens.lk",
+  },
+  {
+    id: "project-3",
+    title: "Airport Taxis",
+    category: "Transportation",
+    image: "/airport taxis.png",
+    link: "https://airporttaxis.lk",
+  },
+  {
+    id: "project-4",
+    title: "Riyon Labs",
+    category: "Technology",
+    image: "/riyonlabs.png",
+    link: "https://riyonlabs.lk",
+  },
+  {
+    id: "project-5",
+    title: "NovaLink",
+    category: "Business Services",
+    image: "/novalink.png",
+    link: "https://novalink.lk",
+  },
+  {
+    id: "project-6",
+    title: "Mobile Hub",
+    category: "E-commerce",
+    image: "/mobilehub.png",
+    link: "https://mobilehub.lk",
+  },
+  {
+    id: "project-7",
+    title: "Sri Ganesh Exports",
+    category: "Export Business",
+    image: "/gammalu.png",
+    link: "https://sriganeshexports.com",
+  },
+];

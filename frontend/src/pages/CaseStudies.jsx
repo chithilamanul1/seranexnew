@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../style";
 import { Navbar, Footer } from "../components";
+import { manualProjects } from "../constants";
 
 const CaseStudies = () => {
-    const [portfolioItems, setPortfolioItems] = useState([]);
-
-    useEffect(() => {
-        fetch('/api/portfolio')
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    setPortfolioItems(data);
-                }
-            })
-            .catch(err => console.error(err));
-    }, []);
+    const portfolioItems = manualProjects;
 
     return (
         <div className="w-full overflow-hidden bg-lightBg dark:bg-primary text-lightText dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300">

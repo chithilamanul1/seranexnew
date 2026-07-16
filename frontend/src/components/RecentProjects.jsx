@@ -1,23 +1,8 @@
-import { useState, useEffect } from "react";
 import styles from "../style";
+import { manualProjects } from "../constants";
 
 const RecentProjects = () => {
-    const [projects, setProjects] = useState([]);
-
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const res = await fetch('/api/portfolio');
-                const data = await res.json();
-                if (Array.isArray(data)) {
-                    setProjects(data);
-                }
-            } catch (error) {
-                console.error('Failed to fetch projects:', error);
-            }
-        };
-        fetchProjects();
-    }, []);
+    const projects = manualProjects;
 
     return (
         <section className={`${styles.paddingY} flex-col bg-white dark:bg-transparent`}>
