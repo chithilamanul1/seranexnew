@@ -232,7 +232,7 @@ export const manualProjects = [
     id: "project-7",
     title: "Sri Ganesh Exports",
     category: "Export Business",
-    image: "/sriganesh.png",
+    image: "/sriganesh-mockup.png",
     link: "https://sriganeshexport.lk",
   },
   {
