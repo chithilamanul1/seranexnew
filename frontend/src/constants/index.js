@@ -235,4 +235,11 @@ export const manualProjects = [
     image: "/sriganesh.png",
     link: "https://sriganeshexport.lk",
   },
+  {
+    id: "project-8",
+    title: "Ravindu Jayathilake",
+    category: "Portfolio",
+    image: "/ravindu.png",
+    link: "https://raviduweb-seven.vercel.app",
+  },
 ];
