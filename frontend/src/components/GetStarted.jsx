@@ -1,29 +1,16 @@
-import styles from "../style";
-import { arrowUp } from "../assets";
-
 const GetStarted = () => (
-  <div
-    className={`${styles.flexCenter} bg-blue-gradient h-[140px] w-[140px] cursor-pointer rounded-full p-[2px]`}
+  <a
+    href="/contact"
+    className="group relative inline-flex items-center justify-center px-8 py-4 font-poppins text-[18px] font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
   >
-    <div
-      className={`${styles.flexCenter} h-[100%] w-[100%] flex-col rounded-full bg-primary`}
-    >
-      <div className={`${styles.flexStart} flex-row`}>
-        <p className="font-poppins text-[18px] font-medium leading-[23.4px]">
-          <span className="text-gradient">Get</span>
-        </p>
-        <img
-          src={arrowUp}
-          alt="arrow-up"
-          className="h-[23px] w-[23px] object-contain"
-        />
-      </div>
-
-      <p className="font-poppins text-[18px] font-medium leading-[23.4px]">
-        <span className="text-gradient">Started</span>
-      </p>
-    </div>
-  </div>
+    <span className="relative z-10 flex items-center gap-2">
+      Get Started
+      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </span>
+    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  </a>
 );
 
 export default GetStarted;
