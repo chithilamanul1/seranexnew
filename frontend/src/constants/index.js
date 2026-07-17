@@ -233,6 +233,6 @@ export const manualProjects = [
     title: "Sri Ganesh Exports",
     category: "Export Business",
     image: "/sriganesh.png",
-    link: "https://sriganeshexports.com",
+    link: "https://sriganeshexport.lk",
   },
 ];
