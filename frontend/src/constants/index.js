@@ -249,4 +249,11 @@ export const manualProjects = [
     image: "/roadhouse-mockup.png",
     link: "https://roadhouse-chi.vercel.app",
   },
+  {
+    id: "project-10",
+    title: "Bamboo Tree Transit Hotel",
+    category: "Hospitality",
+    image: "/bambootree-mockup.png",
+    link: "https://bambootree.vercel.app",
+  },
 ];
