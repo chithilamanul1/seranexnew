@@ -256,4 +256,11 @@ export const manualProjects = [
     image: "/bambootree-mockup.png",
     link: "https://bambootree.vercel.app",
   },
+  {
+    id: "project-11",
+    title: "Gammalu Ceylon Foods",
+    category: "E-commerce",
+    image: "/gammalu-mockup.png",
+    link: "https://www.gammalu.lk",
+  },
 ];
