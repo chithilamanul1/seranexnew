@@ -242,4 +242,11 @@ export const manualProjects = [
     image: "/ravindu.png",
     link: "https://raviduweb-seven.vercel.app",
   },
+  {
+    id: "project-9",
+    title: "Roadhouse Restro & Cafe",
+    category: "Restaurant",
+    image: "/roadhouse-mockup.png",
+    link: "https://roadhouse-chi.vercel.app",
+  },
 ];
