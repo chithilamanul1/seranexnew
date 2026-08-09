@@ -41,7 +41,7 @@ const Contact = () => (
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-lightText dark:text-white text-lg">Email</h4>
-                                    <p className="text-lightDimText dark:text-dimWhite">hello@seranex.com</p>
+                                    <p className="text-lightDimText dark:text-dimWhite">info@seranex.lk</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">

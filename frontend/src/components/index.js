@@ -15,6 +15,7 @@ import DigitalMarketing from "./DigitalMarketing";
 import WhatWeOffer from "./WhatWeOffer";
 import RecentProjects from "./RecentProjects";
 import OurProcess from "./OurProcess";
+import WebDevProcess from "./WebDevProcess";
 
 export {
   Navbar,
@@ -34,4 +35,5 @@ export {
   WhatWeOffer,
   RecentProjects,
   OurProcess,
+  WebDevProcess,
 };

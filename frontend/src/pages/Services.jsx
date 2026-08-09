@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../style";
 import { Navbar, Footer } from "../components";
 import WhatWeOffer from "../components/WhatWeOffer";
+import WebDevProcess from "../components/WebDevProcess";
 
 const Services = () => (
     <div className="w-full overflow-hidden bg-lightBg dark:bg-primary text-lightText dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300">
@@ -14,6 +15,7 @@ const Services = () => (
         <div className={`bg-lightBg dark:bg-primary ${styles.paddingX} ${styles.flexStart} flex-grow transition-colors duration-300`}>
             <div className={`${styles.boxWidth} py-20`}>
                 <WhatWeOffer />
+                <WebDevProcess />
 
                 {/* SEO Content Section */}
                 <div className="mt-24 max-w-[800px] mx-auto text-center md:text-left">

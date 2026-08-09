@@ -263,4 +263,18 @@ export const manualProjects = [
     image: "/gammalu-mockup.png",
     link: "https://www.gammalu.lk",
   },
+  {
+    id: "project-12",
+    title: "Welcome Ceylon Tours",
+    category: "Travel & Tourism",
+    image: "/welcomeceylontours.jpg",
+    link: "https://welcomeceylontours.lk",
+  },
+  {
+    id: "project-13",
+    title: "Ceylon Soul Tours",
+    category: "Travel & Tourism",
+    image: "/ceylansoultours.png",
+    link: "https://ceylonsoultours.lk",
+  },
 ];
