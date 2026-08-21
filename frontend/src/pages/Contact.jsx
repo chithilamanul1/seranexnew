@@ -59,18 +59,26 @@ const Contact = () => (
                     {/* Contact Form */}
                     <div className="flex-[1.5] bg-white dark:bg-black-gradient rounded-[30px] p-8 border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-none">
                         <h3 className="text-2xl font-bold text-lightText dark:text-white mb-6">Send us a message</h3>
-                        <form className="space-y-4" onSubmit={(e) => {
+                        <form className="space-y-4" onSubmit={async (e) => {
                             e.preventDefault();
                             const formData = new FormData(e.target);
-                            const firstName = formData.get('firstName');
-                            const lastName = formData.get('lastName');
-                            const email = formData.get('email');
-                            const message = formData.get('message');
+                            formData.append("access_key", "a90ad6f2-a2e3-4dec-a919-676511826c54");
 
-                            const subject = encodeURIComponent(`New Contact Inquiry from ${firstName} ${lastName}`);
-                            const body = encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`);
-
-                            window.location.href = `mailto:info@seranex.lk?subject=${subject}&body=${body}`;
+                            try {
+                                const response = await fetch("https://api.web3forms.com/submit", {
+                                    method: "POST",
+                                    body: formData
+                                });
+                                const data = await response.json();
+                                if (data.success) {
+                                    alert("Message sent successfully!");
+                                    e.target.reset();
+                                } else {
+                                    alert("Something went wrong. Please try again.");
+                                }
+                            } catch (error) {
+                                alert("Something went wrong. Please try again.");
+                            }
                         }}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
