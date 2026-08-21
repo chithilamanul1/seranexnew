@@ -2,8 +2,8 @@
 import React from "react";
 import styles from "../../style";
 import { Navbar, Footer } from "../../components";
-import WhatWeOffer from "../components/WhatWeOffer";
-import WebDevProcess from "../components/WebDevProcess";
+import WhatWeOffer from "../../components/WhatWeOffer";
+import WebDevProcess from "../../components/WebDevProcess";
 
 const Services = () => (
     <div className="w-full overflow-hidden bg-lightBg dark:bg-primary text-lightText dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300">

@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "../../style";
 import { Navbar, Footer } from "../../components";
-import ownerImg from "../assets/owner.jpg";
+import ownerImg from "../../assets/owner.jpg";
 
 const Company = () => (
     <div className="w-full overflow-hidden bg-lightBg dark:bg-primary text-lightText dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300">
