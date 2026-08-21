@@ -59,24 +59,36 @@ const Contact = () => (
                     {/* Contact Form */}
                     <div className="flex-[1.5] bg-white dark:bg-black-gradient rounded-[30px] p-8 border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-none">
                         <h3 className="text-2xl font-bold text-lightText dark:text-white mb-6">Send us a message</h3>
-                        <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Message sent successfully!'); }}>
+                        <form className="space-y-4" onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.target);
+                            const firstName = formData.get('firstName');
+                            const lastName = formData.get('lastName');
+                            const email = formData.get('email');
+                            const message = formData.get('message');
+
+                            const subject = encodeURIComponent(`New Contact Inquiry from ${firstName} ${lastName}`);
+                            const body = encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+                            window.location.href = `mailto:info@seranex.lk?subject=${subject}&body=${body}`;
+                        }}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-lightDimText dark:text-dimWhite mb-1">First Name</label>
-                                    <input type="text" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="John" />
+                                    <input name="firstName" type="text" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="John" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-lightDimText dark:text-dimWhite mb-1">Last Name</label>
-                                    <input type="text" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="Doe" />
+                                    <input name="lastName" type="text" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="Doe" />
                                 </div>
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-lightDimText dark:text-dimWhite mb-1">Email Address</label>
-                                <input type="email" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="john@example.com" />
+                                <input name="email" type="email" required className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white" placeholder="john@example.com" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-lightDimText dark:text-dimWhite mb-1">Message</label>
-                                <textarea required rows="4" className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white resize-none" placeholder="How can we help you?"></textarea>
+                                <textarea name="message" required rows="4" className="w-full px-4 py-3 bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all text-lightText dark:text-white resize-none" placeholder="How can we help you?"></textarea>
                             </div>
                             <button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition-opacity mt-2">
                                 Send Message
