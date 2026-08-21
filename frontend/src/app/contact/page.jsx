@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
-import styles from "../style";
-import { Navbar, Footer } from "../components";
+import styles from "../../style";
+import { Navbar, Footer } from "../../components";
 
 const Contact = () => (
     <div className="w-full overflow-hidden bg-lightBg dark:bg-primary text-lightText dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300">

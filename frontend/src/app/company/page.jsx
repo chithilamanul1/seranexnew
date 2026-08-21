@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
-import styles from "../style";
-import { Navbar, Footer } from "../components";
+import styles from "../../style";
+import { Navbar, Footer } from "../../components";
 import ownerImg from "../assets/owner.jpg";
 
 const Company = () => (

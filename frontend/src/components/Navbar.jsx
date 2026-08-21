@@ -72,33 +72,53 @@ const Navbar = () => {
                 <a href={`/${nav.id}`}>{nav.title}</a>
               </li>
             ))}
-            {/* Call Us Now Banner */}
-            <a href="tel:+94728382638" className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 px-6 flex justify-between items-center hover:opacity-90 transition-opacity group">
-              <span className="font-poppins font-bold text-[16px] tracking-[0.2em] uppercase">Call Us Now</span>
-              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
+          </ul>
 
-            {/* Mobile Menu Links */}
-            <div className="flex-1 overflow-y-auto py-6 px-8">
-              <ul className="flex flex-col gap-6">
-                {navLinks.map((nav) => (
-                  <li key={nav.id}>
-                    <a
-                      href={`/${nav.id}`}
-                      className="font-poppins text-[15px] font-medium text-gray-800 dark:text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block"
-                      onClick={() => setToggle(false)}
-                    >
-                      {nav.title}
-                    </a>
-                  </li>
-                ))}
-                <li className="pt-4 border-t border-gray-200 dark:border-gray-800">
-                  <a href="/contact" className="font-poppins text-[15px] font-medium text-gray-800 dark:text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Call Us Now Banner */}
+          <a href="tel:+94728382638" className="hidden lg:flex bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 px-6 justify-between items-center hover:opacity-90 transition-opacity group">
+            <span className="font-poppins font-bold text-[16px] tracking-[0.2em] uppercase">Call Us Now</span>
+            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+
+          {/* Mobile Menu Toggle */}
+          <div className="lg:hidden flex flex-1 justify-end items-center">
+            <button
+              className="w-[28px] h-[28px] object-contain cursor-pointer text-black dark:text-white"
+              onClick={() => setToggle(!toggle)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {toggle ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`${!toggle ? "hidden" : "flex"} p-6 bg-white dark:bg-black absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar z-[100] shadow-lg border border-gray-200 dark:border-gray-800`}>
+        <div className="flex-1 overflow-y-auto">
+          <ul className="flex flex-col gap-6">
+            {navLinks.map((nav) => (
+              <li key={nav.id}>
+                <a
+                  href={`/${nav.id}`}
+                  className="font-poppins text-[15px] font-medium text-gray-800 dark:text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block"
+                  onClick={() => setToggle(false)}
+                >
+                  {nav.title}
+                </a>
+              </li>
+            ))}
+            <li className="pt-4 border-t border-gray-200 dark:border-gray-800">
+              <a href="/contact" className="font-poppins text-[15px] font-medium text-gray-800 dark:text-gray-300 hover:text-purple-500 uppercase tracking-wide transition-colors block">
+                Contact Us
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </>

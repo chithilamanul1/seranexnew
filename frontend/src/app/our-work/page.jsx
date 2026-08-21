@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
-import styles from "../style";
-import { Navbar, Footer } from "../components";
-import { manualProjects } from "../constants";
+import styles from "../../style";
+import { Navbar, Footer } from "../../components";
+import { manualProjects } from "../../constants";
 
 const CaseStudies = () => {
     const portfolioItems = manualProjects;

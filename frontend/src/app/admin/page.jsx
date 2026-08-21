@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from "react";
-import styles from "../style";
-import { Navbar, Footer } from "../components";
+import styles from "../../style";
+import { Navbar, Footer } from "../../components";
 
 const Admin = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

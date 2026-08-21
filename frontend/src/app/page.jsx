@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styles from "./style";
+import styles from "../style";
 import {
   Billing,
   Business,
@@ -17,16 +17,10 @@ import {
   WhatWeOffer,
   RecentProjects,
   OurProcess,
-} from "./components";
-import Company from "./pages/Company";
-import Services from "./pages/Services";
-import CaseStudies from "./pages/CaseStudies";
-import News from "./pages/News";
-import Careers from "./pages/Careers";
-import Admin from "./pages/Admin";
-import Contact from "./pages/Contact";
+} from "../components";
 
-const Home = () => (
+export default function Home() {
+  return (
   <div className="w-full overflow-hidden bg-lightBg dark:bg-primary transition-colors duration-300">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
@@ -64,21 +58,5 @@ const Home = () => (
       </div>
     </div>
   </div>
-);
-
-const App = () => (
-  <Router>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/company" element={<Company />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/our-work" element={<CaseStudies />} />
-      <Route path="/news" element={<News />} />
-      <Route path="/careers" element={<Careers />} />
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-  </Router>
-);
-
-export default App;
+  );
+}
